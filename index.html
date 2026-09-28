@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Discord Profile</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/icon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+    <video id="background-video" autoplay muted loop playsinline>
+        <source src="assets/background.mp4" type="video/mp4">
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <main class="dashboard">
+
+        <!-- PROFILE -->
+        <section class="quarter profile-quarter">
+
+            <div class="quarter-label">PROFILE</div>
+
+            <div class="profile-main">
+
+                <div class="avatar-area">
+                    <img
+                        id="avatar"
+                        class="avatar"
+                        src=""
+                        alt="Discord Avatar"
+                    >
+
+                    <div
+                        id="status-bubble"
+                        class="status-bubble status-offline"
+                    ></div>
+                </div>
+
+                <div class="profile-info">
+
+                    <div
+                        id="username"
+                        class="username"
+                    >
+                        Loading...
+                    </div>
+
+                    <div
+                        id="global-name"
+                        class="global-name"
+                    >
+                        Loading...
+                    </div>
+
+                    <div
+                        id="status-text"
+                        class="status-text"
+                    >
+                        Loading status...
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ABOUT -->
+            <div class="description">
+
+                <div class="description-title">
+                    ABOUT
+                </div>
+
+                <p id="description">
+                    Hi, I'm
+                    <span class="rainbow-nick">Nick</span>!<br>
+                    I'm an 18-year-old hobby developer.
+                    I am the owner and developer of
+                    <strong>Caption Chaos</strong>.
+                </p>
+
+            </div>
+
+            <div class="profile-footer">
+
+                <span id="device">
+                    DEVICE: UNKNOWN
+                </span>
+
+                <span class="separator">
+                    /
+                </span>
+
+                <span id="discord-id">
+                    ID: UNKNOWN
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- SPOTIFY -->
+        <section class="quarter spotify-quarter">
+
+            <div class="quarter-label">
+                SPOTIFY
+            </div>
+
+            <div class="spotify-content">
+
+                <img
+                    id="spotify-art"
+                    class="spotify-art"
+                    src=""
+                    alt="Spotify Album Art"
+                >
+
+                <div class="spotify-details">
+
+                    <div
+                        id="spotify-song"
+                        class="spotify-song"
+                    >
+                        Not listening to Spotify
+                    </div>
+
+                    <div
+                        id="spotify-artist"
+                        class="spotify-artist"
+                    >
+                        —
+                    </div>
+
+                    <div
+                        id="spotify-album"
+                        class="spotify-album"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+                <div class="spotify-progress-area">
+
+                    <div class="progress-bar">
+                        <div
+                            id="spotify-progress"
+                            class="progress"
+                        ></div>
+                    </div>
+
+                    <div class="spotify-times">
+
+                        <span id="spotify-current">
+                            0:00
+                        </span>
+
+                        <span id="spotify-duration">
+                            0:00
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACTIVITY -->
+        <section class="quarter activity-quarter">
+
+            <div class="quarter-label">
+                ACTIVITY
+            </div>
+
+            <div class="activity-box">
+
+                <div class="activity-content">
+
+                    <img
+                        id="activity-image"
+                        class="activity-image"
+                        src="assets/activity.png"
+                        alt="Activity"
+                    >
+
+                    <div class="activity-text">
+
+                        <div
+                            id="activity-name"
+                            class="activity-name"
+                        >
+                            No activity
+                        </div>
+
+                        <div
+                            id="activity-detail"
+                            class="activity-detail"
+                        >
+                            Nothing is being played
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- STATS -->
+        <section class="quarter stats-quarter">
+
+            <div class="quarter-label">
+                STATS
+            </div>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ◉
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            VIEWS
+                        </span>
+
+                        <strong id="view-count">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ◷
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            DISCORD SINCE
+                        </span>
+
+                        <strong id="info-created">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ◇
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            ACTIVITIES
+                        </span>
+
+                        <strong id="info-activity">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon status-stat-icon">
+                        ●
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            STATUS
+                        </span>
+
+                        <strong id="info-status">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ▣
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            DEVICE
+                        </span>
+
+                        <strong id="info-device">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ▤
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            PLATFORM
+                        </span>
+
+                        <strong id="info-platform">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ♪
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            LISTENING
+                        </span>
+
+                        <strong id="info-spotify">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon live-icon">
+                        ●
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            LANYARD
+                        </span>
+
+                        <strong id="lanyard-stat">
+                            CONNECTING
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONNECTIONS -->
+        <section class="quarter connections-quarter">
+
+            <div class="quarter-label">
+                CONNECTIONS
+            </div>
+
+            <div class="connections-grid">
+
+                <a
+                    class="connection-card"
+                    data-connection="github"
+                    href="#"
+                >
+                    <img
+                        src="assets/github.png"
+                        alt="GitHub"
+                    >
+
+                    <div>
+                        <strong>GitHub</strong>
+                        <span>GitHub Profile</span>
+                    </div>
+                </a>
+
+
+                <a
+                    class="connection-card"
+                    data-connection="youtube"
+                    href="#"
+                >
+                    <img
+                        src="assets/youtube.png"
+                        alt="YouTube"
+                    >
+
+                    <div>
+                        <strong>YouTube</strong>
+                        <span>YouTube Channel</span>
+                    </div>
+                </a>
+
+
+                <a
+                    class="connection-card"
+                    data-connection="twitch"
+                    href="#"
+                >
+                    <img
+                        src="assets/twitch.png"
+                        alt="Twitch"
+                    >
+
+                    <div>
+                        <strong>Twitch</strong>
+                        <span>Twitch Channel</span>
+                    </div>
+                </a>
+
+
+                <a
+                    class="connection-card"
+                    data-connection="steam"
+                    href="#"
+                >
+                    <img
+                        src="assets/steam.png"
+                        alt="Steam"
+                    >
+
+                    <div>
+                        <strong>Steam</strong>
+                        <span>Steam Profile</span>
+                    </div>
+                </a>
+
+
+                <a
+                    class="connection-card"
+                    data-connection="roblox"
+                    href="#"
+                >
+                    <img
+                        src="assets/roblox.png"
+                        alt="Roblox"
+                    >
+
+                    <div>
+                        <strong>Roblox</strong>
+                        <span>Roblox Profile</span>
+                    </div>
+                </a>
+
+
+                <a
+                    class="connection-card"
+                    data-connection="spotify"
+                    href="#"
+                >
+                    <img
+                        src="assets/spotify.png"
+                        alt="Spotify"
+                    >
+
+                    <div>
+                        <strong>Spotify</strong>
+                        <span>Spotify Profile</span>
+                    </div>
+                </a>
+
+
+                <a
+                    class="connection-card"
+                    data-connection="instagram"
+                    href="#"
+                >
+                    <img
+                        src="assets/instagram.png"
+                        alt="Instagram"
+                    >
+
+                    <div>
+                        <strong>Instagram</strong>
+                        <span>Instagram Profile</span>
+                    </div>
+                </a>
+
+
+                <a
+                    class="connection-card"
+                    data-connection="twitter"
+                    href="#"
+                >
+                    <img
+                        src="assets/twitter.png"
+                        alt="X / Twitter"
+                    >
+
+                    <div>
+                        <strong>X / Twitter</strong>
+                        <span>Social Profile</span>
+                    </div>
+                </a>
+
+
+                <a
+                    class="connection-card"
+                    data-connection="tiktok"
+                    href="#"
+                >
+                    <img
+                        src="assets/tiktok.png"
+                        alt="TikTok"
+                    >
+
+                    <div>
+                        <strong>TikTok</strong>
+                        <span>TikTok Profile</span>
+                    </div>
+                </a>
+
+
+                <a
+                    class="connection-card"
+                    data-connection="website"
+                    href="#"
+                >
+                    <img
+                        src="assets/website.png"
+                        alt="Website"
+                    >
+
+                    <div>
+                        <strong>Website</strong>
+                        <span>Personal Website</span>
+                    </div>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- CONNECTION STATUS -->
+    <div class="connection">
+
+        <span
+            id="connection-dot"
+            class="connection-dot"
+        ></span>
+
+        <span id="connection-text">
+            CONNECTING
+        </span>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
