@@ -1,3 +1,4 @@
+
 const USER_ID = "1243657660704755775";
 
 const REST_URL =
@@ -45,101 +46,105 @@ const CONNECTIONS = {
    HELPERS
 ========================= */
 
-const $ = id =>
-    document.getElementById(id);
+const $ = id => document.getElementById(id);
 
 
 /* =========================
    ELEMENTS
 ========================= */
 
-const avatar =
-    $("avatar");
+const avatar = $("avatar");
+const username = $("username");
+const globalName = $("global-name");
+const statusText = $("status-text");
+const statusBubble = $("status-bubble");
 
-const username =
-    $("username");
+const infoCreated = $("info-created");
+const infoActivity = $("info-activity");
+const infoStatus = $("info-status");
+const infoDevice = $("info-device");
+const infoPlatform = $("info-platform");
+const infoSpotify = $("info-spotify");
 
-const globalName =
-    $("global-name");
+const spotifyArt = $("spotify-art");
+const spotifySong = $("spotify-song");
+const spotifyArtist = $("spotify-artist");
+const spotifyAlbum = $("spotify-album");
+const spotifyProgress = $("spotify-progress");
+const spotifyCurrent = $("spotify-current");
+const spotifyDuration = $("spotify-duration");
 
-const statusText =
-    $("status-text");
+const activityImage = $("activity-image");
+const activityName = $("activity-name");
+const activityDetail = $("activity-detail");
 
-const statusBubble =
-    $("status-bubble");
+const device = $("device");
+const discordId = $("discord-id");
 
-const infoCreated =
-    $("info-created");
+const connectionText = $("connection-text");
+const connectionDot = $("connection-dot");
 
-const infoActivity =
-    $("info-activity");
-
-const infoStatus =
-    $("info-status");
-
-const infoDevice =
-    $("info-device");
-
-const infoPlatform =
-    $("info-platform");
-
-const infoSpotify =
-    $("info-spotify");
-
-const spotifyArt =
-    $("spotify-art");
-
-const spotifySong =
-    $("spotify-song");
-
-const spotifyArtist =
-    $("spotify-artist");
-
-const spotifyAlbum =
-    $("spotify-album");
-
-const spotifyProgress =
-    $("spotify-progress");
-
-const spotifyCurrent =
-    $("spotify-current");
-
-const spotifyDuration =
-    $("spotify-duration");
-
-const activityImage =
-    $("activity-image");
-
-const activityName =
-    $("activity-name");
-
-const activityDetail =
-    $("activity-detail");
-
-const device =
-    $("device");
-
-const discordId =
-    $("discord-id");
-
-const connectionText =
-    $("connection-text");
-
-const connectionDot =
-    $("connection-dot");
-
-const viewCount =
-    $("view-count");
-
-const lanyardStat =
-    $("lanyard-stat");
-
+const viewCount = $("view-count");
+const lanyardStat = $("lanyard-stat");
 
 const DEFAULT_ACTIVITY_IMAGE =
     "assets/activity.png";
 
 const DEFAULT_AVATAR =
     "https://cdn.discordapp.com/embed/avatars/0.png";
+
+
+/* =========================
+   CAIRO CLOCK
+========================= */
+
+function updateEgyptClock() {
+
+    const timeElement =
+        $("egypt-time");
+
+    const dateElement =
+        $("egypt-date");
+
+    if (!timeElement || !dateElement) {
+        return;
+    }
+
+    const now = new Date();
+
+    const time =
+        new Intl.DateTimeFormat(
+            "en-US",
+            {
+                timeZone: "Africa/Cairo",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true
+            }
+        ).format(now);
+
+    const date =
+        new Intl.DateTimeFormat(
+            "en-US",
+            {
+                timeZone: "Africa/Cairo",
+                weekday: "short",
+                month: "short",
+                day: "numeric",
+                year: "numeric"
+            }
+        ).format(now);
+
+    timeElement.textContent = time;
+    dateElement.textContent = date;
+}
+
+updateEgyptClock();
+
+setInterval(
+    updateEgyptClock,
+    1000
+);
 
 
 /* =========================
@@ -210,6 +215,7 @@ function getDiscordCreated(id) {
         return new Date(timestamp);
 
     } catch {
+
         return null;
     }
 }
@@ -389,7 +395,7 @@ function updateStatus(data) {
     }
 
 
-    /* Stats */
+    /* Status stat */
 
     if (infoStatus) {
 
@@ -416,6 +422,7 @@ function updateStatus(data) {
             }
             : null;
 
+
     const deviceName =
         getDevice(platforms);
 
@@ -425,6 +432,7 @@ function updateStatus(data) {
         device.textContent =
             `DEVICE: ${deviceName}`;
     }
+
 
     if (infoDevice) {
 
@@ -465,6 +473,7 @@ function updateStatus(data) {
 
 let spotifyInterval = null;
 
+
 function updateSpotify(data) {
 
     const spotify =
@@ -474,7 +483,6 @@ function updateSpotify(data) {
     if (!spotify) {
 
         if (spotifyArt) {
-
             spotifyArt.removeAttribute("src");
         }
 
@@ -514,7 +522,11 @@ function updateSpotify(data) {
         }
 
         if (spotifyInterval) {
-            clearInterval(spotifyInterval);
+
+            clearInterval(
+                spotifyInterval
+            );
+
             spotifyInterval = null;
         }
 
@@ -575,9 +587,11 @@ function updateSpotify(data) {
         const end =
             spotify.timestamps?.end;
 
+
         if (!start || !end) {
             return;
         }
+
 
         const now =
             Date.now();
@@ -587,6 +601,7 @@ function updateSpotify(data) {
 
         const duration =
             end - start;
+
 
         const percentage =
             Math.max(
@@ -624,8 +639,12 @@ function updateSpotify(data) {
 
 
     if (spotifyInterval) {
-        clearInterval(spotifyInterval);
+
+        clearInterval(
+            spotifyInterval
+        );
     }
+
 
     spotifyInterval =
         setInterval(
@@ -750,7 +769,7 @@ function updateActivity(data) {
 
 
 /* =========================
-   LANYARD DATA
+   UPDATE EVERYTHING
 ========================= */
 
 function updateAll(data) {
@@ -787,12 +806,14 @@ function setConnectionStatus(
             "error"
         );
 
+
         if (state === "connected") {
 
             connection.classList.add(
                 "connected"
             );
         }
+
 
         if (state === "error") {
 
@@ -842,6 +863,7 @@ async function loadProfile() {
 
 
         if (!response.ok) {
+
             throw new Error(
                 `HTTP ${response.status}`
             );
@@ -853,6 +875,7 @@ async function loadProfile() {
 
 
         if (!result.success) {
+
             throw new Error(
                 "Lanyard returned an error"
             );
@@ -867,12 +890,14 @@ async function loadProfile() {
             "CONNECTED"
         );
 
+
     } catch (error) {
 
         console.error(
             "[Lanyard REST]",
             error
         );
+
 
         setConnectionStatus(
             "error",
@@ -887,9 +912,7 @@ async function loadProfile() {
 ========================= */
 
 let socket = null;
-
 let reconnectTimer = null;
-
 let heartbeatTimer = null;
 
 
@@ -944,6 +967,7 @@ function connectLanyard() {
 
 
                     if (heartbeatTimer) {
+
                         clearInterval(
                             heartbeatTimer
                         );
@@ -983,11 +1007,12 @@ function connectLanyard() {
                         })
                     );
 
+
                     return;
                 }
 
 
-                /* INITIAL */
+                /* INITIAL STATE */
 
                 if (packet.t === "INIT_STATE") {
 
@@ -1004,9 +1029,11 @@ function connectLanyard() {
                                     USER_ID
                             );
 
+
                         if (user) {
 
                             updateAll(user);
+
 
                             setConnectionStatus(
                                 "connected",
@@ -1015,13 +1042,17 @@ function connectLanyard() {
                         }
                     }
 
+
                     return;
                 }
 
 
                 /* PRESENCE UPDATE */
 
-                if (packet.t === "PRESENCE_UPDATE") {
+                if (
+                    packet.t ===
+                    "PRESENCE_UPDATE"
+                ) {
 
                     if (
                         packet.d?.user_id ===
@@ -1030,12 +1061,14 @@ function connectLanyard() {
 
                         updateAll(packet.d);
 
+
                         setConnectionStatus(
                             "connected",
                             "LIVE"
                         );
                     }
                 }
+
 
             } catch (error) {
 
@@ -1056,6 +1089,7 @@ function connectLanyard() {
                 "[Lanyard WebSocket]",
                 error
             );
+
 
             setConnectionStatus(
                 "error",
@@ -1086,6 +1120,7 @@ function connectLanyard() {
 
 
             if (reconnectTimer) {
+
                 clearTimeout(
                     reconnectTimer
                 );
@@ -1118,6 +1153,7 @@ function setupConnections() {
 
         const name =
             card.dataset.connection;
+
 
         const url =
             CONNECTIONS[name];
@@ -1153,3 +1189,4 @@ setupConnections();
 loadProfile();
 
 connectLanyard();
+``

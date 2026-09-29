@@ -1,34 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Discord Profile</title>
 
-    <link rel="icon" type="image/x-icon" href="assets/icon.ico">
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="icon"
+        type="image/x-icon"
+        href="assets/icon.ico"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <style>
+
+        /* =========================================
+           EGYPT / CAIRO CLOCK
+        ========================================= */
+
+        .egypt-clock {
+            width: 150px;
+
+            margin-top: 9px;
+
+            padding: 7px 9px;
+
+            box-sizing: border-box;
+
+            border: 1px solid rgba(255,255,255,.08);
+
+            border-radius: 9px;
+
+            background: rgba(10,10,14,.48);
+
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.025);
+        }
+
+
+        .egypt-clock-top {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 5px;
+
+            min-height: 13px;
+        }
+
+
+        .egypt-clock-dot {
+            width: 5px;
+            height: 5px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background: #23a55a;
+
+            box-shadow:
+                0 0 7px rgba(35,165,90,.55);
+
+            animation:
+                egyptClockPulse 1.5s
+                ease-in-out infinite;
+        }
+
+
+        .egypt-clock-label {
+            color: #8a8a93;
+
+            font-size: 6px;
+
+            font-weight: 800;
+
+            letter-spacing: .11em;
+
+            white-space: nowrap;
+        }
+
+
+        .egypt-time {
+            color: #f3f3f5;
+
+            font-size: 11px;
+
+            line-height: 1;
+
+            font-weight: 800;
+
+            letter-spacing: .02em;
+
+            font-variant-numeric:
+                tabular-nums;
+
+            white-space: nowrap;
+        }
+
+
+        .egypt-date {
+            margin-top: 5px;
+
+            color: #777780;
+
+            font-size: 6px;
+
+            line-height: 1.2;
+
+            font-weight: 600;
+
+            letter-spacing: .02em;
+
+            text-align: center;
+
+            white-space: nowrap;
+        }
+
+
+        @keyframes egyptClockPulse {
+
+            0%,
+            100% {
+                opacity: .45;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+
+        /* =========================================
+           GITHUB ICON FALLBACK
+        ========================================= */
+
+        .connection-card img {
+            object-fit: contain;
+        }
+
+
+        .github-fallback {
+            width: 32px;
+            height: 32px;
+
+            flex-shrink: 0;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 8px;
+
+            background: rgba(255,255,255,.06);
+
+            color: #ffffff;
+
+            font-size: 19px;
+
+            font-weight: 700;
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <!-- BACKGROUND -->
-    <video id="background-video" autoplay muted loop playsinline>
-        <source src="assets/background.mp4" type="video/mp4">
+
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
+
+    <video
+        id="background-video"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+        <source
+            src="assets/background.mp4"
+            type="video/mp4"
+        >
     </video>
 
     <div class="video-overlay"></div>
 
+
     <main class="dashboard">
 
-        <!-- PROFILE -->
+
+        <!-- =========================================
+             PROFILE
+        ========================================== -->
+
         <section class="quarter profile-quarter">
 
-            <div class="quarter-label">PROFILE</div>
+            <div class="quarter-label">
+                PROFILE
+            </div>
+
 
             <div class="profile-main">
 
+
+                <!-- AVATAR -->
+
                 <div class="avatar-area">
+
                     <img
                         id="avatar"
                         class="avatar"
@@ -36,13 +226,57 @@
                         alt="Discord Avatar"
                     >
 
+
                     <div
                         id="status-bubble"
                         class="status-bubble status-offline"
                     ></div>
+
+
+                    <!-- EGYPT / CAIRO CLOCK -->
+
+                    <div class="egypt-clock">
+
+                        <div class="egypt-clock-top">
+
+                            <span
+                                class="egypt-clock-dot"
+                            ></span>
+
+
+                            <span
+                                class="egypt-clock-label"
+                            >
+                                EGYPT / CAIRO
+                            </span>
+
+
+                            <span
+                                id="egypt-time"
+                                class="egypt-time"
+                            >
+                                --:--
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            id="egypt-date"
+                            class="egypt-date"
+                        >
+                            Loading date...
+                        </div>
+
+                    </div>
+
                 </div>
 
+
+                <!-- PROFILE INFO -->
+
                 <div class="profile-info">
+
 
                     <div
                         id="username"
@@ -51,12 +285,14 @@
                         Loading...
                     </div>
 
+
                     <div
                         id="global-name"
                         class="global-name"
                     >
                         Loading...
                     </div>
+
 
                     <div
                         id="status-text"
@@ -65,26 +301,45 @@
                         Loading status...
                     </div>
 
+
                 </div>
 
             </div>
 
-            <!-- ABOUT -->
+
+            <!-- =========================================
+                 ABOUT
+            ========================================== -->
+
             <div class="description">
 
                 <div class="description-title">
                     ABOUT
                 </div>
 
+
                 <p id="description">
+
                     Hi, I'm
-                    <span class="rainbow-nick">Nick</span>!<br>
+                    <span class="rainbow-nick">
+                        Nick
+                    </span>!<br>
+
                     I'm an 18-year-old hobby developer.
+
                     I am the owner and developer of
-                    <strong>Caption Chaos</strong>.
+                    <strong>
+                        Caption Chaos
+                    </strong>.
+
                 </p>
 
             </div>
+
+
+            <!-- =========================================
+                 PROFILE FOOTER
+            ========================================== -->
 
             <div class="profile-footer">
 
@@ -92,9 +347,11 @@
                     DEVICE: UNKNOWN
                 </span>
 
+
                 <span class="separator">
                     /
                 </span>
+
 
                 <span id="discord-id">
                     ID: UNKNOWN
@@ -105,14 +362,20 @@
         </section>
 
 
-        <!-- SPOTIFY -->
+
+        <!-- =========================================
+             SPOTIFY
+        ========================================== -->
+
         <section class="quarter spotify-quarter">
 
             <div class="quarter-label">
                 SPOTIFY
             </div>
 
+
             <div class="spotify-content">
+
 
                 <img
                     id="spotify-art"
@@ -121,7 +384,9 @@
                     alt="Spotify Album Art"
                 >
 
+
                 <div class="spotify-details">
+
 
                     <div
                         id="spotify-song"
@@ -130,12 +395,14 @@
                         Not listening to Spotify
                     </div>
 
+
                     <div
                         id="spotify-artist"
                         class="spotify-artist"
                     >
                         —
                     </div>
+
 
                     <div
                         id="spotify-album"
@@ -144,16 +411,22 @@
                         —
                     </div>
 
+
                 </div>
+
 
                 <div class="spotify-progress-area">
 
+
                     <div class="progress-bar">
+
                         <div
                             id="spotify-progress"
                             class="progress"
                         ></div>
+
                     </div>
+
 
                     <div class="spotify-times">
 
@@ -161,11 +434,13 @@
                             0:00
                         </span>
 
+
                         <span id="spotify-duration">
                             0:00
                         </span>
 
                     </div>
+
 
                 </div>
 
@@ -174,16 +449,22 @@
         </section>
 
 
-        <!-- ACTIVITY -->
+
+        <!-- =========================================
+             ACTIVITY
+        ========================================== -->
+
         <section class="quarter activity-quarter">
 
             <div class="quarter-label">
                 ACTIVITY
             </div>
 
+
             <div class="activity-box">
 
                 <div class="activity-content">
+
 
                     <img
                         id="activity-image"
@@ -192,7 +473,9 @@
                         alt="Activity"
                     >
 
+
                     <div class="activity-text">
+
 
                         <div
                             id="activity-name"
@@ -201,12 +484,14 @@
                             No activity
                         </div>
 
+
                         <div
                             id="activity-detail"
                             class="activity-detail"
                         >
                             Nothing is being played
                         </div>
+
 
                     </div>
 
@@ -217,14 +502,20 @@
         </section>
 
 
-        <!-- STATS -->
+
+        <!-- =========================================
+             STATS
+        ========================================== -->
+
         <section class="quarter stats-quarter">
 
             <div class="quarter-label">
                 STATS
             </div>
 
+
             <div class="stats-grid">
+
 
                 <div class="stat-card">
 
@@ -232,11 +523,13 @@
                         ◉
                     </div>
 
+
                     <div class="stat-content">
 
                         <span>
                             VIEWS
                         </span>
+
 
                         <strong id="view-count">
                             0
@@ -247,17 +540,20 @@
                 </div>
 
 
+
                 <div class="stat-card">
 
                     <div class="stat-icon">
                         ◷
                     </div>
 
+
                     <div class="stat-content">
 
                         <span>
                             DISCORD SINCE
                         </span>
+
 
                         <strong id="info-created">
                             —
@@ -268,17 +564,20 @@
                 </div>
 
 
+
                 <div class="stat-card">
 
                     <div class="stat-icon">
                         ◇
                     </div>
 
+
                     <div class="stat-content">
 
                         <span>
                             ACTIVITIES
                         </span>
+
 
                         <strong id="info-activity">
                             —
@@ -289,17 +588,22 @@
                 </div>
 
 
+
                 <div class="stat-card">
 
-                    <div class="stat-icon status-stat-icon">
+                    <div
+                        class="stat-icon status-stat-icon"
+                    >
                         ●
                     </div>
+
 
                     <div class="stat-content">
 
                         <span>
                             STATUS
                         </span>
+
 
                         <strong id="info-status">
                             —
@@ -310,17 +614,20 @@
                 </div>
 
 
+
                 <div class="stat-card">
 
                     <div class="stat-icon">
                         ▣
                     </div>
 
+
                     <div class="stat-content">
 
                         <span>
                             DEVICE
                         </span>
+
 
                         <strong id="info-device">
                             —
@@ -331,17 +638,20 @@
                 </div>
 
 
+
                 <div class="stat-card">
 
                     <div class="stat-icon">
                         ▤
                     </div>
 
+
                     <div class="stat-content">
 
                         <span>
                             PLATFORM
                         </span>
+
 
                         <strong id="info-platform">
                             —
@@ -352,17 +662,20 @@
                 </div>
 
 
+
                 <div class="stat-card">
 
                     <div class="stat-icon">
                         ♪
                     </div>
 
+
                     <div class="stat-content">
 
                         <span>
                             LISTENING
                         </span>
+
 
                         <strong id="info-spotify">
                             —
@@ -373,17 +686,20 @@
                 </div>
 
 
+
                 <div class="stat-card">
 
                     <div class="stat-icon live-icon">
                         ●
                     </div>
 
+
                     <div class="stat-content">
 
                         <span>
                             LANYARD
                         </span>
+
 
                         <strong id="lanyard-stat">
                             CONNECTING
@@ -393,188 +709,337 @@
 
                 </div>
 
+
             </div>
 
         </section>
 
 
-        <!-- CONNECTIONS -->
+
+        <!-- =========================================
+             CONNECTIONS
+        ========================================== -->
+
         <section class="quarter connections-quarter">
 
             <div class="quarter-label">
                 CONNECTIONS
             </div>
 
+
             <div class="connections-grid">
+
+
+                <!-- GITHUB -->
 
                 <a
                     class="connection-card"
                     data-connection="github"
                     href="#"
                 >
+
                     <img
                         src="assets/github.png"
                         alt="GitHub"
+                        onerror="
+                            this.style.display='none';
+                            this.nextElementSibling.style.display='flex';
+                        "
                     >
 
+
+                    <span
+                        class="github-fallback"
+                        aria-hidden="true"
+                    >
+                        ◉
+                    </span>
+
+
                     <div>
-                        <strong>GitHub</strong>
-                        <span>GitHub Profile</span>
+
+                        <strong>
+                            GitHub
+                        </strong>
+
+                        <span>
+                            GitHub Profile
+                        </span>
+
                     </div>
+
                 </a>
 
+
+
+                <!-- YOUTUBE -->
 
                 <a
                     class="connection-card"
                     data-connection="youtube"
                     href="#"
                 >
+
                     <img
                         src="assets/youtube.png"
                         alt="YouTube"
                     >
 
+
                     <div>
-                        <strong>YouTube</strong>
-                        <span>YouTube Channel</span>
+
+                        <strong>
+                            YouTube
+                        </strong>
+
+                        <span>
+                            YouTube Channel
+                        </span>
+
                     </div>
+
                 </a>
 
+
+
+                <!-- TWITCH -->
 
                 <a
                     class="connection-card"
                     data-connection="twitch"
                     href="#"
                 >
+
                     <img
                         src="assets/twitch.png"
                         alt="Twitch"
                     >
 
+
                     <div>
-                        <strong>Twitch</strong>
-                        <span>Twitch Channel</span>
+
+                        <strong>
+                            Twitch
+                        </strong>
+
+                        <span>
+                            Twitch Channel
+                        </span>
+
                     </div>
+
                 </a>
 
+
+
+                <!-- STEAM -->
 
                 <a
                     class="connection-card"
                     data-connection="steam"
                     href="#"
                 >
+
                     <img
                         src="assets/steam.png"
                         alt="Steam"
                     >
 
+
                     <div>
-                        <strong>Steam</strong>
-                        <span>Steam Profile</span>
+
+                        <strong>
+                            Steam
+                        </strong>
+
+                        <span>
+                            Steam Profile
+                        </span>
+
                     </div>
+
                 </a>
 
+
+
+                <!-- ROBLOX -->
 
                 <a
                     class="connection-card"
                     data-connection="roblox"
                     href="#"
                 >
+
                     <img
                         src="assets/roblox.png"
                         alt="Roblox"
                     >
 
+
                     <div>
-                        <strong>Roblox</strong>
-                        <span>Roblox Profile</span>
+
+                        <strong>
+                            Roblox
+                        </strong>
+
+                        <span>
+                            Roblox Profile
+                        </span>
+
                     </div>
+
                 </a>
 
+
+
+                <!-- SPOTIFY -->
 
                 <a
                     class="connection-card"
                     data-connection="spotify"
                     href="#"
                 >
+
                     <img
                         src="assets/spotify.png"
                         alt="Spotify"
                     >
 
+
                     <div>
-                        <strong>Spotify</strong>
-                        <span>Spotify Profile</span>
+
+                        <strong>
+                            Spotify
+                        </strong>
+
+                        <span>
+                            Spotify Profile
+                        </span>
+
                     </div>
+
                 </a>
 
+
+
+                <!-- INSTAGRAM -->
 
                 <a
                     class="connection-card"
                     data-connection="instagram"
                     href="#"
                 >
+
                     <img
                         src="assets/instagram.png"
                         alt="Instagram"
                     >
 
+
                     <div>
-                        <strong>Instagram</strong>
-                        <span>Instagram Profile</span>
+
+                        <strong>
+                            Instagram
+                        </strong>
+
+                        <span>
+                            Instagram Profile
+                        </span>
+
                     </div>
+
                 </a>
 
+
+
+                <!-- X / TWITTER -->
 
                 <a
                     class="connection-card"
                     data-connection="twitter"
                     href="#"
                 >
+
                     <img
                         src="assets/twitter.png"
                         alt="X / Twitter"
                     >
 
+
                     <div>
-                        <strong>X / Twitter</strong>
-                        <span>Social Profile</span>
+
+                        <strong>
+                            X / Twitter
+                        </strong>
+
+                        <span>
+                            Social Profile
+                        </span>
+
                     </div>
+
                 </a>
 
+
+
+                <!-- TIKTOK -->
 
                 <a
                     class="connection-card"
                     data-connection="tiktok"
                     href="#"
                 >
+
                     <img
                         src="assets/tiktok.png"
                         alt="TikTok"
                     >
 
+
                     <div>
-                        <strong>TikTok</strong>
-                        <span>TikTok Profile</span>
+
+                        <strong>
+                            TikTok
+                        </strong>
+
+                        <span>
+                            TikTok Profile
+                        </span>
+
                     </div>
+
                 </a>
 
+
+
+                <!-- WEBSITE -->
 
                 <a
                     class="connection-card"
                     data-connection="website"
                     href="#"
                 >
+
                     <img
                         src="assets/website.png"
                         alt="Website"
                     >
 
+
                     <div>
-                        <strong>Website</strong>
-                        <span>Personal Website</span>
+
+                        <strong>
+                            Website
+                        </strong>
+
+                        <span>
+                            Personal Website
+                        </span>
+
                     </div>
+
                 </a>
+
 
             </div>
 
@@ -583,13 +1048,18 @@
     </main>
 
 
-    <!-- CONNECTION STATUS -->
+
+    <!-- =========================================
+         CONNECTION STATUS
+    ========================================== -->
+
     <div class="connection">
 
         <span
             id="connection-dot"
             class="connection-dot"
         ></span>
+
 
         <span id="connection-text">
             CONNECTING
@@ -598,7 +1068,82 @@
     </div>
 
 
+
+    <!-- =========================================
+         CAIRO CLOCK SCRIPT
+    ========================================== -->
+
+    <script>
+
+        function updateEgyptClock() {
+
+            const timeElement =
+                document.getElementById("egypt-time");
+
+            const dateElement =
+                document.getElementById("egypt-date");
+
+
+            if (!timeElement || !dateElement) {
+                return;
+            }
+
+
+            const now = new Date();
+
+
+            const time =
+                new Intl.DateTimeFormat(
+                    "en-US",
+                    {
+                        timeZone: "Africa/Cairo",
+
+                        hour: "2-digit",
+                        minute: "2-digit",
+
+                        hour12: true
+                    }
+                ).format(now);
+
+
+            const date =
+                new Intl.DateTimeFormat(
+                    "en-US",
+                    {
+                        timeZone: "Africa/Cairo",
+
+                        weekday: "short",
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric"
+                    }
+                ).format(now);
+
+
+            timeElement.textContent = time;
+
+            dateElement.textContent = date;
+        }
+
+
+        updateEgyptClock();
+
+
+        setInterval(
+            updateEgyptClock,
+            1000
+        );
+
+    </script>
+
+
+
+    <!-- YOUR MAIN SCRIPT -->
+
     <script src="script.js"></script>
 
+
 </body>
+
 </html>
+
