@@ -2,175 +2,115 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Discord Profile</title>
 
+    <!-- =========================
+         DISCORD / OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Nick — Discord Profile"
+    >
+
+    <meta
+        property="og:description"
+        content="Nick's personal Discord profile, connections, activity and more."
+    >
+
+    <meta
+        property="og:url"
+        content="https://afrige.github.io/nickolaslol/"
+    >
+
+    <meta
+        property="og:image"
+        content="https://afrige.github.io/nickolaslol/assets/icon.png"
+    >
+
+    <meta
+        property="og:image:width"
+        content="512"
+    >
+
+    <meta
+        property="og:image:height"
+        content="512"
+    >
+
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Nick — Discord Profile"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Nick's personal Discord profile, connections, activity and more."
+    >
+
+    <meta
+        name="twitter:image"
+        content="https://afrige.github.io/nickolaslol/assets/icon.png"
+    >
+
+
+    <!-- =========================
+         FAVICON
+    ========================== -->
+
     <link
         rel="icon"
-        type="image/x-icon"
         href="assets/icon.ico"
     >
+
+
+    <!-- =========================
+         FONT
+    ========================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================
+         CSS
+    ========================== -->
 
     <link
         rel="stylesheet"
         href="style.css"
     >
-
-    <style>
-
-        /* =========================================
-           EGYPT / CAIRO CLOCK
-        ========================================= */
-
-        .egypt-clock {
-            width: 150px;
-
-            margin-top: 9px;
-
-            padding: 7px 9px;
-
-            box-sizing: border-box;
-
-            border: 1px solid rgba(255,255,255,.08);
-
-            border-radius: 9px;
-
-            background: rgba(10,10,14,.48);
-
-            box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.025);
-        }
-
-
-        .egypt-clock-top {
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 5px;
-
-            min-height: 13px;
-        }
-
-
-        .egypt-clock-dot {
-            width: 5px;
-            height: 5px;
-
-            flex-shrink: 0;
-
-            border-radius: 50%;
-
-            background: #23a55a;
-
-            box-shadow:
-                0 0 7px rgba(35,165,90,.55);
-
-            animation:
-                egyptClockPulse 1.5s
-                ease-in-out infinite;
-        }
-
-
-        .egypt-clock-label {
-            color: #8a8a93;
-
-            font-size: 6px;
-
-            font-weight: 800;
-
-            letter-spacing: .11em;
-
-            white-space: nowrap;
-        }
-
-
-        .egypt-time {
-            color: #f3f3f5;
-
-            font-size: 11px;
-
-            line-height: 1;
-
-            font-weight: 800;
-
-            letter-spacing: .02em;
-
-            font-variant-numeric:
-                tabular-nums;
-
-            white-space: nowrap;
-        }
-
-
-        .egypt-date {
-            margin-top: 5px;
-
-            color: #777780;
-
-            font-size: 6px;
-
-            line-height: 1.2;
-
-            font-weight: 600;
-
-            letter-spacing: .02em;
-
-            text-align: center;
-
-            white-space: nowrap;
-        }
-
-
-        @keyframes egyptClockPulse {
-
-            0%,
-            100% {
-                opacity: .45;
-            }
-
-            50% {
-                opacity: 1;
-            }
-        }
-
-
-        /* =========================================
-           GITHUB ICON FALLBACK
-        ========================================= */
-
-        .connection-card img {
-            object-fit: contain;
-        }
-
-
-        .github-fallback {
-            width: 32px;
-            height: 32px;
-
-            flex-shrink: 0;
-
-            display: none;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 8px;
-
-            background: rgba(255,255,255,.06);
-
-            color: #ffffff;
-
-            font-size: 19px;
-
-            font-weight: 700;
-        }
-
-    </style>
 
 </head>
 
@@ -178,9 +118,9 @@
 <body>
 
 
-    <!-- =========================================
+    <!-- =========================
          BACKGROUND
-    ========================================== -->
+    ========================== -->
 
     <video
         id="background-video"
@@ -189,21 +129,28 @@
         loop
         playsinline
     >
+
         <source
             src="assets/background.mp4"
             type="video/mp4"
         >
+
     </video>
+
 
     <div class="video-overlay"></div>
 
 
+    <!-- =========================
+         DASHBOARD
+    ========================== -->
+
     <main class="dashboard">
 
 
-        <!-- =========================================
+        <!-- =========================
              PROFILE
-        ========================================== -->
+        ========================== -->
 
         <section class="quarter profile-quarter">
 
@@ -215,14 +162,15 @@
             <div class="profile-main">
 
 
-                <!-- AVATAR -->
+                <!-- AVATAR + CLOCK -->
 
                 <div class="avatar-area">
+
 
                     <img
                         id="avatar"
                         class="avatar"
-                        src=""
+                        src="https://cdn.discordapp.com/embed/avatars/0.png"
                         alt="Discord Avatar"
                     >
 
@@ -233,7 +181,7 @@
                     ></div>
 
 
-                    <!-- EGYPT / CAIRO CLOCK -->
+                    <!-- CAIRO CLOCK -->
 
                     <div class="egypt-clock">
 
@@ -243,19 +191,17 @@
                                 class="egypt-clock-dot"
                             ></span>
 
-
                             <span
                                 class="egypt-clock-label"
                             >
                                 EGYPT / CAIRO
                             </span>
 
-
                             <span
                                 id="egypt-time"
                                 class="egypt-time"
                             >
-                                --:--
+                                00:00
                             </span>
 
                         </div>
@@ -270,13 +216,13 @@
 
                     </div>
 
+
                 </div>
 
 
                 <!-- PROFILE INFO -->
 
                 <div class="profile-info">
-
 
                     <div
                         id="username"
@@ -298,18 +244,17 @@
                         id="status-text"
                         class="status-text"
                     >
-                        Loading status...
+                        OFFLINE
                     </div>
-
 
                 </div>
 
             </div>
 
 
-            <!-- =========================================
+            <!-- =========================
                  ABOUT
-            ========================================== -->
+            ========================== -->
 
             <div class="description">
 
@@ -318,28 +263,23 @@
                 </div>
 
 
-                <p id="description">
-
+                <p>
                     Hi, I'm
                     <span class="rainbow-nick">
                         Nick
-                    </span>!<br>
-
-                    I'm an 18-year-old hobby developer.
-
-                    I am the owner and developer of
-                    <strong>
-                        Caption Chaos
-                    </strong>.
-
+                    </span>.
+                    I'm a developer, creator and owner of
+                    <strong>Caption Chaos</strong>.
+                    I enjoy building projects, Discord bots,
+                    websites and games.
                 </p>
 
             </div>
 
 
-            <!-- =========================================
+            <!-- =========================
                  PROFILE FOOTER
-            ========================================== -->
+            ========================== -->
 
             <div class="profile-footer">
 
@@ -347,14 +287,12 @@
                     DEVICE: UNKNOWN
                 </span>
 
-
                 <span class="separator">
                     /
                 </span>
 
-
                 <span id="discord-id">
-                    ID: UNKNOWN
+                    ID: —
                 </span>
 
             </div>
@@ -363,9 +301,9 @@
 
 
 
-        <!-- =========================================
+        <!-- =========================
              SPOTIFY
-        ========================================== -->
+        ========================== -->
 
         <section class="quarter spotify-quarter">
 
@@ -381,12 +319,11 @@
                     id="spotify-art"
                     class="spotify-art"
                     src=""
-                    alt="Spotify Album Art"
+                    alt="Spotify artwork"
                 >
 
 
                 <div class="spotify-details">
-
 
                     <div
                         id="spotify-song"
@@ -411,12 +348,10 @@
                         —
                     </div>
 
-
                 </div>
 
 
                 <div class="spotify-progress-area">
-
 
                     <div class="progress-bar">
 
@@ -434,13 +369,11 @@
                             0:00
                         </span>
 
-
                         <span id="spotify-duration">
                             0:00
                         </span>
 
                     </div>
-
 
                 </div>
 
@@ -450,9 +383,9 @@
 
 
 
-        <!-- =========================================
+        <!-- =========================
              ACTIVITY
-        ========================================== -->
+        ========================== -->
 
         <section class="quarter activity-quarter">
 
@@ -476,7 +409,6 @@
 
                     <div class="activity-text">
 
-
                         <div
                             id="activity-name"
                             class="activity-name"
@@ -492,7 +424,6 @@
                             Nothing is being played
                         </div>
 
-
                     </div>
 
                 </div>
@@ -503,9 +434,9 @@
 
 
 
-        <!-- =========================================
+        <!-- =========================
              STATS
-        ========================================== -->
+        ========================== -->
 
         <section class="quarter stats-quarter">
 
@@ -517,19 +448,19 @@
             <div class="stats-grid">
 
 
+                <!-- VIEWS -->
+
                 <div class="stat-card">
 
                     <div class="stat-icon">
                         ◉
                     </div>
 
-
                     <div class="stat-content">
 
                         <span>
                             VIEWS
                         </span>
-
 
                         <strong id="view-count">
                             0
@@ -540,6 +471,7 @@
                 </div>
 
 
+                <!-- DISCORD SINCE -->
 
                 <div class="stat-card">
 
@@ -547,13 +479,11 @@
                         ◷
                     </div>
 
-
                     <div class="stat-content">
 
                         <span>
                             DISCORD SINCE
                         </span>
-
 
                         <strong id="info-created">
                             —
@@ -564,13 +494,13 @@
                 </div>
 
 
+                <!-- ACTIVITIES -->
 
                 <div class="stat-card">
 
                     <div class="stat-icon">
-                        ◇
+                        ◆
                     </div>
-
 
                     <div class="stat-content">
 
@@ -578,9 +508,8 @@
                             ACTIVITIES
                         </span>
 
-
                         <strong id="info-activity">
-                            —
+                            NONE
                         </strong>
 
                     </div>
@@ -588,15 +517,13 @@
                 </div>
 
 
+                <!-- STATUS -->
 
                 <div class="stat-card">
 
-                    <div
-                        class="stat-icon status-stat-icon"
-                    >
+                    <div class="stat-icon status-stat-icon">
                         ●
                     </div>
-
 
                     <div class="stat-content">
 
@@ -604,9 +531,8 @@
                             STATUS
                         </span>
 
-
                         <strong id="info-status">
-                            —
+                            OFFLINE
                         </strong>
 
                     </div>
@@ -614,6 +540,7 @@
                 </div>
 
 
+                <!-- DEVICE -->
 
                 <div class="stat-card">
 
@@ -621,16 +548,14 @@
                         ▣
                     </div>
 
-
                     <div class="stat-content">
 
                         <span>
                             DEVICE
                         </span>
 
-
                         <strong id="info-device">
-                            —
+                            UNKNOWN
                         </strong>
 
                     </div>
@@ -638,6 +563,7 @@
                 </div>
 
 
+                <!-- PLATFORM -->
 
                 <div class="stat-card">
 
@@ -645,16 +571,14 @@
                         ▤
                     </div>
 
-
                     <div class="stat-content">
 
                         <span>
                             PLATFORM
                         </span>
 
-
                         <strong id="info-platform">
-                            —
+                            None
                         </strong>
 
                     </div>
@@ -662,13 +586,13 @@
                 </div>
 
 
+                <!-- LISTENING -->
 
                 <div class="stat-card">
 
                     <div class="stat-icon">
-                        ♪
+                        ♫
                     </div>
-
 
                     <div class="stat-content">
 
@@ -676,9 +600,8 @@
                             LISTENING
                         </span>
 
-
                         <strong id="info-spotify">
-                            —
+                            NOT LISTENING
                         </strong>
 
                     </div>
@@ -686,6 +609,7 @@
                 </div>
 
 
+                <!-- LANYARD -->
 
                 <div class="stat-card">
 
@@ -693,13 +617,11 @@
                         ●
                     </div>
 
-
                     <div class="stat-content">
 
                         <span>
                             LANYARD
                         </span>
-
 
                         <strong id="lanyard-stat">
                             CONNECTING
@@ -709,16 +631,15 @@
 
                 </div>
 
-
             </div>
 
         </section>
 
 
 
-        <!-- =========================================
+        <!-- =========================
              CONNECTIONS
-        ========================================== -->
+        ========================== -->
 
         <section class="quarter connections-quarter">
 
@@ -738,21 +659,23 @@
                     href="#"
                 >
 
-                    <img
-                        src="assets/github.png"
-                        alt="GitHub"
-                        onerror="
-                            this.style.display='none';
-                            this.nextElementSibling.style.display='flex';
-                        "
-                    >
-
-
                     <span
-                        class="github-fallback"
+                        class="connection-icon github-icon"
                         aria-hidden="true"
                     >
-                        ◉
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+
+                            <path
+                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.018.005 2.043.138 3.003.404 2.28-1.552 3.285-1.23 3.285-1.23.65 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.375.81 1.096.81 2.21 0 1.595-.015 2.875-.015 3.265 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                            />
+
+                        </svg>
+
                     </span>
 
 
@@ -763,7 +686,7 @@
                         </strong>
 
                         <span>
-                            GitHub Profile
+                            @afrige
                         </span>
 
                     </div>
@@ -785,7 +708,6 @@
                         alt="YouTube"
                     >
 
-
                     <div>
 
                         <strong>
@@ -793,7 +715,7 @@
                         </strong>
 
                         <span>
-                            YouTube Channel
+                            Aevnloll
                         </span>
 
                     </div>
@@ -815,7 +737,6 @@
                         alt="Twitch"
                     >
 
-
                     <div>
 
                         <strong>
@@ -823,7 +744,7 @@
                         </strong>
 
                         <span>
-                            Twitch Channel
+                            nick_thenewb
                         </span>
 
                     </div>
@@ -845,7 +766,6 @@
                         alt="Steam"
                     >
 
-
                     <div>
 
                         <strong>
@@ -853,7 +773,7 @@
                         </strong>
 
                         <span>
-                            Steam Profile
+                            Profile
                         </span>
 
                     </div>
@@ -875,7 +795,6 @@
                         alt="Roblox"
                     >
 
-
                     <div>
 
                         <strong>
@@ -883,7 +802,7 @@
                         </strong>
 
                         <span>
-                            Roblox Profile
+                            Profile
                         </span>
 
                     </div>
@@ -905,7 +824,6 @@
                         alt="Spotify"
                     >
 
-
                     <div>
 
                         <strong>
@@ -913,7 +831,7 @@
                         </strong>
 
                         <span>
-                            Spotify Profile
+                            Profile
                         </span>
 
                     </div>
@@ -935,7 +853,6 @@
                         alt="Instagram"
                     >
 
-
                     <div>
 
                         <strong>
@@ -943,7 +860,7 @@
                         </strong>
 
                         <span>
-                            Instagram Profile
+                            @nick_lamao
                         </span>
 
                     </div>
@@ -962,18 +879,17 @@
 
                     <img
                         src="assets/twitter.png"
-                        alt="X / Twitter"
+                        alt="X"
                     >
-
 
                     <div>
 
                         <strong>
-                            X / Twitter
+                            X
                         </strong>
 
                         <span>
-                            Social Profile
+                            @itsghoulzlol
                         </span>
 
                     </div>
@@ -995,7 +911,6 @@
                         alt="TikTok"
                     >
 
-
                     <div>
 
                         <strong>
@@ -1003,7 +918,7 @@
                         </strong>
 
                         <span>
-                            TikTok Profile
+                            @sleepynicklol
                         </span>
 
                     </div>
@@ -1025,7 +940,6 @@
                         alt="Website"
                     >
 
-
                     <div>
 
                         <strong>
@@ -1033,7 +947,7 @@
                         </strong>
 
                         <span>
-                            Personal Website
+                            Personal site
                         </span>
 
                     </div>
@@ -1045,13 +959,14 @@
 
         </section>
 
+
     </main>
 
 
 
-    <!-- =========================================
-         CONNECTION STATUS
-    ========================================== -->
+    <!-- =========================
+         LANYARD CONNECTION
+    ========================== -->
 
     <div class="connection">
 
@@ -1059,7 +974,6 @@
             id="connection-dot"
             class="connection-dot"
         ></span>
-
 
         <span id="connection-text">
             CONNECTING
@@ -1069,81 +983,12 @@
 
 
 
-    <!-- =========================================
-         CAIRO CLOCK SCRIPT
-    ========================================== -->
-
-    <script>
-
-        function updateEgyptClock() {
-
-            const timeElement =
-                document.getElementById("egypt-time");
-
-            const dateElement =
-                document.getElementById("egypt-date");
-
-
-            if (!timeElement || !dateElement) {
-                return;
-            }
-
-
-            const now = new Date();
-
-
-            const time =
-                new Intl.DateTimeFormat(
-                    "en-US",
-                    {
-                        timeZone: "Africa/Cairo",
-
-                        hour: "2-digit",
-                        minute: "2-digit",
-
-                        hour12: true
-                    }
-                ).format(now);
-
-
-            const date =
-                new Intl.DateTimeFormat(
-                    "en-US",
-                    {
-                        timeZone: "Africa/Cairo",
-
-                        weekday: "short",
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric"
-                    }
-                ).format(now);
-
-
-            timeElement.textContent = time;
-
-            dateElement.textContent = date;
-        }
-
-
-        updateEgyptClock();
-
-
-        setInterval(
-            updateEgyptClock,
-            1000
-        );
-
-    </script>
-
-
-
-    <!-- YOUR MAIN SCRIPT -->
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
     <script src="script.js"></script>
-
 
 </body>
 
 </html>
-
