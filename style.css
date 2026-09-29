@@ -1,77 +1,59 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-
 :root {
-
     --bg: #070709;
-
     --panel: rgba(12, 12, 16, 0.78);
-
     --panel-hover: rgba(20, 20, 25, 0.84);
 
     --border: rgba(255, 255, 255, 0.08);
 
     --text: #ffffff;
-
     --muted: #a6a6af;
-
     --dim: #6f6f78;
 
     --online: #23a55a;
-
     --idle: #f0b232;
-
     --dnd: #ff0000;
-
     --offline: #80848e;
 }
 
 
 /* =========================
-   GLOBAL
+   RESET
 ========================= */
 
 * {
     box-sizing: border-box;
 }
 
-
 html {
     min-height: 100%;
 }
 
-
 body {
-
     margin: 0;
-
     min-height: 100vh;
 
     background: var(--bg);
 
     color: var(--text);
 
-    font-family:
-        "Inter",
-        sans-serif;
+    font-family: "Inter", sans-serif;
 
     overflow-x: hidden;
 }
 
 
 /* =========================
-   BACKGROUND
+   BACKGROUND VIDEO
 ========================= */
 
 #background-video {
-
     position: fixed;
 
     inset: 0;
 
     width: 100%;
-
     height: 100%;
 
     object-fit: cover;
@@ -79,9 +61,7 @@ body {
     z-index: -3;
 }
 
-
 .video-overlay {
-
     position: fixed;
 
     inset: 0;
@@ -101,12 +81,10 @@ body {
 ========================= */
 
 .dashboard {
-
-    width:
-        min(
-            1150px,
-            calc(100% - 30px)
-        );
+    width: min(
+        1150px,
+        calc(100% - 30px)
+    );
 
     margin: 30px auto;
 
@@ -121,30 +99,24 @@ body {
 
 
 /* =========================
-   PANELS
+   QUARTERS
 ========================= */
 
 .quarter {
-
     position: relative;
 
     padding: 18px;
 
     min-width: 0;
 
-    background:
-        var(--panel);
+    background: var(--panel);
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     border-radius: 16px;
 
-    backdrop-filter:
-        blur(18px);
-
-    -webkit-backdrop-filter:
-        blur(18px);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
     box-shadow:
         0 20px 60px
@@ -153,9 +125,7 @@ body {
     overflow: hidden;
 }
 
-
 .quarter-label {
-
     margin-bottom: 16px;
 
     color: var(--dim);
@@ -176,11 +146,122 @@ body {
 
 .profile-quarter {
     grid-row: span 3;
+
+    position: relative;
+
+    overflow: hidden;
+
+    isolation: isolate;
 }
 
 
-.profile-main {
+/* =========================
+   DISCORD BANNER
+========================= */
 
+.profile-banner {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 245px;
+
+    background-position: center top;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: -3;
+
+    transition:
+        opacity 0.8s ease,
+        background-image 0.8s ease;
+}
+
+
+/* Dark overlay directly over banner */
+
+.profile-banner::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+
+            rgba(7, 7, 9, 0.08) 0%,
+
+            rgba(7, 7, 9, 0.25) 20%,
+
+            rgba(7, 7, 9, 0.52) 40%,
+
+            rgba(7, 7, 9, 0.78) 60%,
+
+            rgba(7, 7, 9, 0.95) 80%,
+
+            rgba(7, 7, 9, 1) 100%
+        );
+}
+
+
+/* Extra fade */
+
+.profile-banner-fade {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 285px;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to bottom,
+
+            rgba(12, 12, 16, 0) 0%,
+
+            rgba(12, 12, 16, 0.04) 15%,
+
+            rgba(12, 12, 16, 0.15) 30%,
+
+            rgba(12, 12, 16, 0.42) 50%,
+
+            rgba(12, 12, 16, 0.72) 68%,
+
+            rgba(12, 12, 16, 0.93) 84%,
+
+            rgba(12, 12, 16, 1) 100%
+        );
+
+    z-index: -2;
+}
+
+
+.profile-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   PROFILE MAIN
+========================= */
+
+.profile-main {
     display: flex;
 
     align-items: flex-start;
@@ -189,8 +270,11 @@ body {
 }
 
 
-.avatar-area {
+/* =========================
+   AVATAR
+========================= */
 
+.avatar-area {
     position: relative;
 
     width: 82px;
@@ -204,11 +288,8 @@ body {
     align-items: center;
 }
 
-
 .avatar {
-
     width: 82px;
-
     height: 82px;
 
     display: block;
@@ -222,19 +303,24 @@ body {
     border:
         2px solid
         rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.3);
 }
 
 
-.status-bubble {
+/* =========================
+   STATUS
+========================= */
 
+.status-bubble {
     position: absolute;
 
     right: -2px;
-
     top: 62px;
 
     width: 19px;
-
     height: 19px;
 
     border-radius: 50%;
@@ -243,23 +329,18 @@ body {
         4px solid
         #111116;
 
-    background:
-        var(--offline);
+    background: var(--offline);
 }
-
 
 .status-online {
     background: var(--online);
 }
 
-
 .status-idle {
     background: var(--idle);
 }
 
-
 .status-dnd {
-
     background: var(--dnd);
 
     animation:
@@ -269,7 +350,6 @@ body {
         infinite;
 }
 
-
 .status-offline {
     background: var(--offline);
 }
@@ -277,7 +357,8 @@ body {
 
 @keyframes dndPulse {
 
-    0% {
+    0%,
+    100% {
         box-shadow:
             0 0 0
             rgba(255, 0, 0, 0);
@@ -288,25 +369,20 @@ body {
             0 0 13px
             rgba(255, 0, 0, 0.5);
     }
-
-    100% {
-        box-shadow:
-            0 0 0
-            rgba(255, 0, 0, 0);
-    }
 }
 
 
-.profile-info {
+/* =========================
+   PROFILE INFO
+========================= */
 
+.profile-info {
     min-width: 0;
 
     padding-top: 3px;
 }
 
-
 .username {
-
     color: #fff;
 
     font-size: 19px;
@@ -322,9 +398,7 @@ body {
     white-space: nowrap;
 }
 
-
 .global-name {
-
     margin-top: 3px;
 
     color: var(--muted);
@@ -334,9 +408,7 @@ body {
     font-weight: 500;
 }
 
-
 .status-text {
-
     margin-top: 8px;
 
     color: #888891;
@@ -354,11 +426,10 @@ body {
 
 
 /* =========================
-   EGYPT CLOCK
+   CAIRO CLOCK
 ========================= */
 
 .egypt-clock {
-
     width: 150px;
 
     margin-top: 9px;
@@ -381,9 +452,7 @@ body {
         rgba(255, 255, 255, 0.025);
 }
 
-
 .egypt-clock-top {
-
     display: flex;
 
     align-items: center;
@@ -395,19 +464,15 @@ body {
     min-height: 13px;
 }
 
-
 .egypt-clock-dot {
-
     width: 5px;
-
     height: 5px;
 
     flex-shrink: 0;
 
     border-radius: 50%;
 
-    background:
-        var(--online);
+    background: var(--online);
 
     box-shadow:
         0 0 7px
@@ -420,9 +485,7 @@ body {
         infinite;
 }
 
-
 .egypt-clock-label {
-
     color: #8a8a93;
 
     font-size: 6px;
@@ -434,9 +497,7 @@ body {
     white-space: nowrap;
 }
 
-
 .egypt-time {
-
     color: #f3f3f5;
 
     font-size: 11px;
@@ -453,9 +514,7 @@ body {
     white-space: nowrap;
 }
 
-
 .egypt-date {
-
     margin-top: 5px;
 
     color: #777780;
@@ -492,7 +551,6 @@ body {
 ========================= */
 
 .description {
-
     margin-top: 25px;
 
     padding-top: 18px;
@@ -502,9 +560,7 @@ body {
         rgba(255, 255, 255, 0.06);
 }
 
-
 .description-title {
-
     margin-bottom: 8px;
 
     color: var(--dim);
@@ -516,9 +572,7 @@ body {
     letter-spacing: 0.16em;
 }
 
-
 .description p {
-
     margin: 0;
 
     color: #a9a9b2;
@@ -528,9 +582,7 @@ body {
     line-height: 1.75;
 }
 
-
 .description strong {
-
     color: #e4e4e8;
 
     font-weight: 700;
@@ -542,7 +594,6 @@ body {
 ========================= */
 
 .rainbow-nick {
-
     position: relative;
 
     display: inline-block;
@@ -552,6 +603,7 @@ body {
     background:
         linear-gradient(
             90deg,
+
             #ff004c,
             #ff7a00,
             #ffe600,
@@ -574,8 +626,8 @@ body {
 
     animation:
         nickRainbow
-        0.55s
-        cubic-bezier(.15, .8, .2, 1)
+        .55s
+        cubic-bezier(.15,.8,.2,1)
         both;
 }
 
@@ -583,30 +635,22 @@ body {
 @keyframes nickRainbow {
 
     0% {
-
         background-position: 100% 50%;
-
         filter: brightness(1);
     }
 
     35% {
-
         background-position: 35% 50%;
-
         filter: brightness(1.65);
     }
 
     70% {
-
         background-position: -35% 50%;
-
         filter: brightness(1.25);
     }
 
     100% {
-
         background-position: -100% 50%;
-
         filter: brightness(1);
     }
 }
@@ -617,7 +661,6 @@ body {
 ========================= */
 
 .profile-footer {
-
     display: flex;
 
     align-items: center;
@@ -635,7 +678,6 @@ body {
     letter-spacing: 0.08em;
 }
 
-
 .separator {
     color: #3e3e45;
 }
@@ -649,9 +691,7 @@ body {
     min-height: 180px;
 }
 
-
 .spotify-content {
-
     display: grid;
 
     grid-template-columns:
@@ -663,11 +703,8 @@ body {
     row-gap: 15px;
 }
 
-
 .spotify-art {
-
     width: 72px;
-
     height: 72px;
 
     object-fit: cover;
@@ -681,14 +718,11 @@ body {
         rgba(255, 255, 255, 0.06);
 }
 
-
 .spotify-details {
     min-width: 0;
 }
 
-
 .spotify-song {
-
     color: #f3f3f5;
 
     font-size: 12px;
@@ -702,9 +736,7 @@ body {
     white-space: nowrap;
 }
 
-
 .spotify-artist {
-
     margin-top: 5px;
 
     color: #a0a0a8;
@@ -720,9 +752,7 @@ body {
     white-space: nowrap;
 }
 
-
 .spotify-album {
-
     margin-top: 4px;
 
     color: #66666f;
@@ -736,14 +766,11 @@ body {
     white-space: nowrap;
 }
 
-
 .spotify-progress-area {
     grid-column: 1 / -1;
 }
 
-
 .progress-bar {
-
     width: 100%;
 
     height: 4px;
@@ -756,9 +783,7 @@ body {
         rgba(255, 255, 255, 0.08);
 }
 
-
 .progress {
-
     width: 0%;
 
     height: 100%;
@@ -771,9 +796,7 @@ body {
         width 0.8s linear;
 }
 
-
 .spotify-times {
-
     display: flex;
 
     justify-content: space-between;
@@ -794,9 +817,7 @@ body {
     min-height: 150px;
 }
 
-
 .activity-box {
-
     padding: 12px;
 
     border-radius: 11px;
@@ -809,9 +830,7 @@ body {
         rgba(255, 255, 255, 0.05);
 }
 
-
 .activity-content {
-
     display: flex;
 
     align-items: center;
@@ -819,11 +838,8 @@ body {
     gap: 12px;
 }
 
-
 .activity-image {
-
     width: 52px;
-
     height: 52px;
 
     flex-shrink: 0;
@@ -835,14 +851,11 @@ body {
     background: #16161a;
 }
 
-
 .activity-text {
     min-width: 0;
 }
 
-
 .activity-name {
-
     color: #e5e5e9;
 
     font-size: 10px;
@@ -856,9 +869,7 @@ body {
     white-space: nowrap;
 }
 
-
 .activity-detail {
-
     margin-top: 5px;
 
     color: #777780;
@@ -881,20 +892,19 @@ body {
     grid-column: 1 / -1;
 }
 
-
 .stats-grid {
-
     display: grid;
 
     grid-template-columns:
-        repeat(4, minmax(0, 1fr));
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
 
     gap: 7px;
 }
 
-
 .stat-card {
-
     display: flex;
 
     align-items: center;
@@ -915,14 +925,12 @@ body {
         rgba(255, 255, 255, 0.055);
 
     transition:
-        background 0.18s ease,
-        border-color 0.18s ease,
-        transform 0.18s ease;
+        background .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
 }
 
-
 .stat-card:hover {
-
     background:
         rgba(255, 255, 255, 0.065);
 
@@ -933,11 +941,8 @@ body {
         translateY(-2px);
 }
 
-
 .stat-icon {
-
     width: 29px;
-
     height: 29px;
 
     display: flex;
@@ -960,14 +965,11 @@ body {
     font-weight: 700;
 }
 
-
 .stat-content {
     min-width: 0;
 }
 
-
 .stat-content span {
-
     display: block;
 
     margin-bottom: 4px;
@@ -983,9 +985,7 @@ body {
     white-space: nowrap;
 }
 
-
 .stat-content strong {
-
     display: block;
 
     color: #dddde3;
@@ -1001,14 +1001,11 @@ body {
     text-overflow: ellipsis;
 }
 
-
 .status-stat-icon {
     color: var(--dnd);
 }
 
-
 .live-icon {
-
     color: var(--online);
 
     animation:
@@ -1022,7 +1019,7 @@ body {
 @keyframes livePulse {
 
     0% {
-        opacity: 0.5;
+        opacity: .5;
     }
 
     50% {
@@ -1030,7 +1027,7 @@ body {
     }
 
     100% {
-        opacity: 0.5;
+        opacity: .5;
     }
 }
 
@@ -1043,20 +1040,19 @@ body {
     grid-column: 1 / -1;
 }
 
-
 .connections-grid {
-
     display: grid;
 
     grid-template-columns:
-        repeat(5, minmax(0, 1fr));
+        repeat(
+            5,
+            minmax(0, 1fr)
+        );
 
     gap: 8px;
 }
 
-
 .connection-card {
-
     display: flex;
 
     align-items: center;
@@ -1081,14 +1077,12 @@ body {
     border-radius: 10px;
 
     transition:
-        background 0.18s ease,
-        border-color 0.18s ease,
-        transform 0.18s ease;
+        background .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
 }
 
-
 .connection-card:hover {
-
     background:
         var(--panel-hover);
 
@@ -1099,11 +1093,8 @@ body {
         translateY(-2px);
 }
 
-
 .connection-card img {
-
     width: 28px;
-
     height: 28px;
 
     flex-shrink: 0;
@@ -1111,14 +1102,31 @@ body {
     object-fit: contain;
 }
 
+.connection-icon {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #fff;
+}
+
+.github-icon svg {
+    width: 22px;
+    height: 22px;
+}
 
 .connection-card div {
     min-width: 0;
 }
 
-
 .connection-card strong {
-
     display: block;
 
     color: #dddde3;
@@ -1134,9 +1142,7 @@ body {
     text-overflow: ellipsis;
 }
 
-
 .connection-card span {
-
     display: block;
 
     margin-top: 3px;
@@ -1158,11 +1164,9 @@ body {
 ========================= */
 
 .connection {
-
     position: fixed;
 
     right: 20px;
-
     bottom: 18px;
 
     display: flex;
@@ -1182,11 +1186,9 @@ body {
 
     border-radius: 999px;
 
-    backdrop-filter:
-        blur(12px);
+    backdrop-filter: blur(12px);
 
-    -webkit-backdrop-filter:
-        blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
     color: #6f6f78;
 
@@ -1197,68 +1199,63 @@ body {
     letter-spacing: 0.08em;
 }
 
-
 .connection-dot {
-
     width: 6px;
-
     height: 6px;
 
     border-radius: 50%;
 
-    background:
-        var(--idle);
+    background: var(--idle);
 }
-
 
 .connection.connected .connection-dot {
-    background:
-        var(--online);
+    background: var(--online);
 }
 
-
 .connection.error .connection-dot {
-    background:
-        var(--dnd);
+    background: var(--dnd);
 }
 
 
 /* =========================
-   RESPONSIVE
+   TABLET
 ========================= */
 
 @media (max-width: 900px) {
 
     .dashboard {
-
         grid-template-columns: 1fr;
     }
-
 
     .profile-quarter {
         grid-row: auto;
     }
 
-
     .stats-grid {
-
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
     }
 
-
     .connections-grid {
-
         grid-template-columns:
-            repeat(3, minmax(0, 1fr));
+            repeat(
+                3,
+                minmax(0, 1fr)
+            );
     }
 }
 
 
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 600px) {
 
     .dashboard {
-
         width:
             min(
                 calc(100% - 18px),
@@ -1268,60 +1265,59 @@ body {
         margin: 18px auto;
     }
 
-
     .quarter {
         padding: 15px;
     }
 
-
     .stats-grid {
-
         grid-template-columns: 1fr;
     }
 
-
     .connections-grid {
-
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
     }
 
-
     .connection {
-
         right: 10px;
-
         bottom: 10px;
+    }
+
+    .profile-banner {
+        height: 220px;
+    }
+
+    .profile-banner-fade {
+        height: 255px;
     }
 }
 
 
+/* =========================
+   SMALL PHONES
+========================= */
+
 @media (max-width: 400px) {
 
     .connections-grid {
-
         grid-template-columns: 1fr;
     }
-
 
     .profile-main {
         gap: 12px;
     }
 
-
     .avatar-area {
-
         width: 70px;
     }
-
 
     .avatar {
-
         width: 70px;
-
         height: 70px;
     }
-
 
     .egypt-clock {
         width: 135px;

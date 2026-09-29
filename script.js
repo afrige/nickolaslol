@@ -1,4 +1,3 @@
-
 const USER_ID = "1243657660704755775";
 
 const REST_URL =
@@ -13,7 +12,9 @@ const WS_URL =
 ========================= */
 
 const CONNECTIONS = {
-    github: "https://github.com/afrige",
+
+    github:
+        "https://github.com/afrige",
 
     youtube:
         "https://www.youtube.com/@Aevnloll",
@@ -24,7 +25,8 @@ const CONNECTIONS = {
     steam:
         "https://steamcommunity.com/profiles/76561198749923280/",
 
-    roblox: "",
+    roblox:
+        "",
 
     spotify:
         "https://open.spotify.com/user/31og5rmygokugx5lnm4dphp6qlty?si=c39d67ef0ece433b",
@@ -38,7 +40,9 @@ const CONNECTIONS = {
     tiktok:
         "https://www.tiktok.com/@sleepynicklol",
 
-    website: ""
+    website:
+        ""
+
 };
 
 
@@ -46,49 +50,108 @@ const CONNECTIONS = {
    HELPERS
 ========================= */
 
-const $ = id => document.getElementById(id);
+const $ = id =>
+    document.getElementById(id);
 
 
 /* =========================
    ELEMENTS
 ========================= */
 
-const avatar = $("avatar");
-const username = $("username");
-const globalName = $("global-name");
-const statusText = $("status-text");
-const statusBubble = $("status-bubble");
+const avatar =
+    $("avatar");
 
-const infoCreated = $("info-created");
-const infoActivity = $("info-activity");
-const infoStatus = $("info-status");
-const infoDevice = $("info-device");
-const infoPlatform = $("info-platform");
-const infoSpotify = $("info-spotify");
+const username =
+    $("username");
 
-const spotifyArt = $("spotify-art");
-const spotifySong = $("spotify-song");
-const spotifyArtist = $("spotify-artist");
-const spotifyAlbum = $("spotify-album");
-const spotifyProgress = $("spotify-progress");
-const spotifyCurrent = $("spotify-current");
-const spotifyDuration = $("spotify-duration");
+const globalName =
+    $("global-name");
 
-const activityImage = $("activity-image");
-const activityName = $("activity-name");
-const activityDetail = $("activity-detail");
+const statusText =
+    $("status-text");
 
-const device = $("device");
-const discordId = $("discord-id");
+const statusBubble =
+    $("status-bubble");
 
-const connectionText = $("connection-text");
-const connectionDot = $("connection-dot");
+const profileBanner =
+    $("profile-banner");
 
-const viewCount = $("view-count");
-const lanyardStat = $("lanyard-stat");
+
+const infoCreated =
+    $("info-created");
+
+const infoActivity =
+    $("info-activity");
+
+const infoStatus =
+    $("info-status");
+
+const infoDevice =
+    $("info-device");
+
+const infoPlatform =
+    $("info-platform");
+
+const infoSpotify =
+    $("info-spotify");
+
+
+const spotifyArt =
+    $("spotify-art");
+
+const spotifySong =
+    $("spotify-song");
+
+const spotifyArtist =
+    $("spotify-artist");
+
+const spotifyAlbum =
+    $("spotify-album");
+
+const spotifyProgress =
+    $("spotify-progress");
+
+const spotifyCurrent =
+    $("spotify-current");
+
+const spotifyDuration =
+    $("spotify-duration");
+
+
+const activityImage =
+    $("activity-image");
+
+const activityName =
+    $("activity-name");
+
+const activityDetail =
+    $("activity-detail");
+
+
+const device =
+    $("device");
+
+const discordId =
+    $("discord-id");
+
+
+const connectionText =
+    $("connection-text");
+
+const connectionDot =
+    $("connection-dot");
+
+
+const viewCount =
+    $("view-count");
+
+const lanyardStat =
+    $("lanyard-stat");
+
 
 const DEFAULT_ACTIVITY_IMAGE =
-    "assets/activity.png";
+    "./assets/activity.png";
+
 
 const DEFAULT_AVATAR =
     "https://cdn.discordapp.com/embed/avatars/0.png";
@@ -106,40 +169,70 @@ function updateEgyptClock() {
     const dateElement =
         $("egypt-date");
 
-    if (!timeElement || !dateElement) {
+
+    if (
+        !timeElement ||
+        !dateElement
+    ) {
         return;
     }
 
-    const now = new Date();
+
+    const now =
+        new Date();
+
 
     const time =
         new Intl.DateTimeFormat(
             "en-US",
             {
-                timeZone: "Africa/Cairo",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: true
+                timeZone:
+                    "Africa/Cairo",
+
+                hour:
+                    "2-digit",
+
+                minute:
+                    "2-digit",
+
+                hour12:
+                    true
             }
         ).format(now);
+
 
     const date =
         new Intl.DateTimeFormat(
             "en-US",
             {
-                timeZone: "Africa/Cairo",
-                weekday: "short",
-                month: "short",
-                day: "numeric",
-                year: "numeric"
+                timeZone:
+                    "Africa/Cairo",
+
+                weekday:
+                    "short",
+
+                month:
+                    "short",
+
+                day:
+                    "numeric",
+
+                year:
+                    "numeric"
             }
         ).format(now);
 
-    timeElement.textContent = time;
-    dateElement.textContent = date;
+
+    timeElement.textContent =
+        time;
+
+    dateElement.textContent =
+        date;
 }
 
+
 updateEgyptClock();
+
 
 setInterval(
     updateEgyptClock,
@@ -153,19 +246,26 @@ setInterval(
 
 let localViews =
     Number(
-        localStorage.getItem("profileViews") || "0"
+        localStorage.getItem(
+            "profileViews"
+        ) || "0"
     );
 
+
 localViews++;
+
 
 localStorage.setItem(
     "profileViews",
     localViews
 );
 
+
 if (viewCount) {
+
     viewCount.textContent =
         localViews.toLocaleString();
+
 }
 
 
@@ -175,20 +275,34 @@ if (viewCount) {
 
 function formatTime(ms) {
 
-    if (!Number.isFinite(ms) || ms < 0) {
+    if (
+        !Number.isFinite(ms) ||
+        ms < 0
+    ) {
         return "0:00";
     }
 
+
     const totalSeconds =
-        Math.floor(ms / 1000);
+        Math.floor(
+            ms / 1000
+        );
+
 
     const minutes =
-        Math.floor(totalSeconds / 60);
+        Math.floor(
+            totalSeconds / 60
+        );
+
 
     const seconds =
         totalSeconds % 60;
 
-    return `${minutes}:${String(seconds).padStart(2, "0")}`;
+
+    return `${minutes}:${String(
+        seconds
+    ).padStart(2, "0")}`;
+
 }
 
 
@@ -203,8 +317,10 @@ function getDiscordCreated(id) {
         const snowflake =
             BigInt(id);
 
+
         const discordEpoch =
             1420070400000n;
+
 
         const timestamp =
             Number(
@@ -212,12 +328,17 @@ function getDiscordCreated(id) {
                 discordEpoch
             );
 
-        return new Date(timestamp);
+
+        return new Date(
+            timestamp
+        );
 
     } catch {
 
         return null;
+
     }
+
 }
 
 
@@ -240,7 +361,9 @@ function statusLabel(status) {
 
         default:
             return "OFFLINE";
+
     }
+
 }
 
 
@@ -251,26 +374,95 @@ function statusLabel(status) {
 function getDevice(platforms) {
 
     if (!platforms) {
+
         return "UNKNOWN";
+
     }
+
 
     const names = [];
 
+
     if (platforms.desktop) {
-        names.push("DESKTOP");
+
+        names.push(
+            "DESKTOP"
+        );
+
     }
+
 
     if (platforms.mobile) {
-        names.push("MOBILE");
+
+        names.push(
+            "MOBILE"
+        );
+
     }
 
+
     if (platforms.web) {
-        names.push("WEB");
+
+        names.push(
+            "WEB"
+        );
+
     }
+
 
     return names.length
         ? names.join(" / ")
         : "UNKNOWN";
+
+}
+
+
+/* =========================
+   DISCORD BANNER
+========================= */
+
+function updateBanner(user) {
+
+    if (!profileBanner) {
+
+        return;
+
+    }
+
+
+    if (
+        !user ||
+        !user.banner
+    ) {
+
+        profileBanner.style.backgroundImage =
+            "none";
+
+        profileBanner.style.opacity =
+            "0";
+
+        return;
+
+    }
+
+
+    const extension =
+        user.banner.startsWith("a_")
+            ? "gif"
+            : "png";
+
+
+    const bannerUrl =
+        `https://cdn.discordapp.com/banners/${user.id}/${user.banner}.${extension}?size=1024`;
+
+
+    profileBanner.style.backgroundImage =
+        `url("${bannerUrl}")`;
+
+
+    profileBanner.style.opacity =
+        "1";
+
 }
 
 
@@ -283,35 +475,61 @@ function updateProfile(data) {
     const user =
         data?.discord_user;
 
+
     if (!user) {
+
         return;
+
     }
 
 
-    /* Avatar */
+    /* =========================
+       BANNER
+    ========================== */
+
+    updateBanner(user);
+
+
+    /* =========================
+       AVATAR
+    ========================== */
 
     if (avatar) {
 
+        const extension =
+            user.avatar?.startsWith("a_")
+                ? "gif"
+                : "png";
+
+
         const avatarUrl =
             user.avatar
-                ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${user.avatar.startsWith("a_") ? "gif" : "png"}?size=256`
+                ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${extension}?size=256`
                 : DEFAULT_AVATAR;
+
 
         avatar.src =
             avatarUrl;
+
     }
 
 
-    /* Username */
+    /* =========================
+       USERNAME
+    ========================== */
 
     if (username) {
 
         username.textContent =
-            user.username || "Unknown";
+            user.username ||
+            "Unknown";
+
     }
 
 
-    /* Global name */
+    /* =========================
+       GLOBAL NAME
+    ========================== */
 
     if (globalName) {
 
@@ -319,24 +537,33 @@ function updateProfile(data) {
             user.global_name ||
             user.username ||
             "Unknown";
+
     }
 
 
-    /* Discord ID */
+    /* =========================
+       DISCORD ID
+    ========================== */
 
     if (discordId) {
 
         discordId.textContent =
             `ID: ${user.id}`;
+
     }
 
 
-    /* Created */
+    /* =========================
+       ACCOUNT CREATION
+    ========================== */
 
     if (infoCreated) {
 
         const created =
-            getDiscordCreated(user.id);
+            getDiscordCreated(
+                user.id
+            );
+
 
         if (created) {
 
@@ -344,12 +571,18 @@ function updateProfile(data) {
                 created.toLocaleDateString(
                     undefined,
                     {
-                        month: "short",
-                        year: "numeric"
+                        month:
+                            "short",
+
+                        year:
+                            "numeric"
                     }
                 );
+
         }
+
     }
+
 }
 
 
@@ -360,19 +593,21 @@ function updateProfile(data) {
 function updateStatus(data) {
 
     const status =
-        data?.discord_status || "offline";
+        data?.discord_status ||
+        "offline";
 
 
-    /* Bubble */
+    /* STATUS BUBBLE */
 
     if (statusBubble) {
 
         statusBubble.className =
             `status-bubble status-${status}`;
+
     }
 
 
-    /* Status text */
+    /* CUSTOM STATUS */
 
     if (statusText) {
 
@@ -382,6 +617,7 @@ function updateStatus(data) {
                     activity.type === 4
             );
 
+
         if (custom?.state) {
 
             statusText.textContent =
@@ -390,27 +626,37 @@ function updateStatus(data) {
         } else {
 
             statusText.textContent =
-                statusLabel(status);
+                statusLabel(
+                    status
+                );
+
         }
+
     }
 
 
-    /* Status stat */
+    /* STATUS STAT */
 
     if (infoStatus) {
 
         infoStatus.textContent =
-            statusLabel(status);
+            statusLabel(
+                status
+            );
+
     }
 
 
-    /* Device */
+    /* =========================
+       ACTIVE DEVICES
+    ========================== */
 
     const platforms =
         data.active_on_discord_desktop ||
         data.active_on_discord_mobile ||
         data.active_on_discord_web
             ? {
+
                 desktop:
                     data.active_on_discord_desktop,
 
@@ -419,18 +665,22 @@ function updateStatus(data) {
 
                 web:
                     data.active_on_discord_web
+
             }
             : null;
 
 
     const deviceName =
-        getDevice(platforms);
+        getDevice(
+            platforms
+        );
 
 
     if (device) {
 
         device.textContent =
             `DEVICE: ${deviceName}`;
+
     }
 
 
@@ -438,32 +688,57 @@ function updateStatus(data) {
 
         infoDevice.textContent =
             deviceName;
+
     }
 
 
-    /* Platform */
+    /* PLATFORM */
 
     if (infoPlatform) {
 
         const platformList = [];
 
-        if (data.active_on_discord_desktop) {
-            platformList.push("Desktop");
+
+        if (
+            data.active_on_discord_desktop
+        ) {
+
+            platformList.push(
+                "Desktop"
+            );
+
         }
 
-        if (data.active_on_discord_mobile) {
-            platformList.push("Mobile");
+
+        if (
+            data.active_on_discord_mobile
+        ) {
+
+            platformList.push(
+                "Mobile"
+            );
+
         }
 
-        if (data.active_on_discord_web) {
-            platformList.push("Web");
+
+        if (
+            data.active_on_discord_web
+        ) {
+
+            platformList.push(
+                "Web"
+            );
+
         }
+
 
         infoPlatform.textContent =
             platformList.length
                 ? platformList.join(" / ")
                 : "None";
+
     }
+
 }
 
 
@@ -471,7 +746,8 @@ function updateStatus(data) {
    SPOTIFY
 ========================= */
 
-let spotifyInterval = null;
+let spotifyInterval =
+    null;
 
 
 function updateSpotify(data) {
@@ -483,43 +759,69 @@ function updateSpotify(data) {
     if (!spotify) {
 
         if (spotifyArt) {
-            spotifyArt.removeAttribute("src");
+
+            spotifyArt.removeAttribute(
+                "src"
+            );
+
         }
+
 
         if (spotifySong) {
+
             spotifySong.textContent =
                 "Not listening to Spotify";
+
         }
+
 
         if (spotifyArtist) {
+
             spotifyArtist.textContent =
                 "—";
+
         }
+
 
         if (spotifyAlbum) {
+
             spotifyAlbum.textContent =
                 "—";
+
         }
+
 
         if (spotifyProgress) {
+
             spotifyProgress.style.width =
                 "0%";
+
         }
+
 
         if (spotifyCurrent) {
+
             spotifyCurrent.textContent =
                 "0:00";
+
         }
+
 
         if (spotifyDuration) {
+
             spotifyDuration.textContent =
                 "0:00";
+
         }
 
+
         if (infoSpotify) {
+
             infoSpotify.textContent =
                 "NOT LISTENING";
+
         }
+
 
         if (spotifyInterval) {
 
@@ -527,55 +829,59 @@ function updateSpotify(data) {
                 spotifyInterval
             );
 
-            spotifyInterval = null;
+            spotifyInterval =
+                null;
+
         }
 
+
         return;
+
     }
 
-
-    /* Artwork */
 
     if (spotifyArt) {
 
         spotifyArt.src =
-            spotify.album_art_url || "";
+            spotify.album_art_url ||
+            "";
+
     }
 
-
-    /* Song */
 
     if (spotifySong) {
 
         spotifySong.textContent =
-            spotify.song || "Unknown";
+            spotify.song ||
+            "Unknown";
+
     }
 
-
-    /* Artist */
 
     if (spotifyArtist) {
 
         spotifyArtist.textContent =
-            spotify.artist || "Unknown";
+            spotify.artist ||
+            "Unknown";
+
     }
 
-
-    /* Album */
 
     if (spotifyAlbum) {
 
         spotifyAlbum.textContent =
-            spotify.album || "Unknown";
+            spotify.album ||
+            "Unknown";
+
     }
 
-
-    /* Stats */
 
     if (infoSpotify) {
 
         infoSpotify.textContent =
-            spotify.song || "LISTENING";
+            spotify.song ||
+            "LISTENING";
+
     }
 
 
@@ -588,16 +894,23 @@ function updateSpotify(data) {
             spotify.timestamps?.end;
 
 
-        if (!start || !end) {
+        if (
+            !start ||
+            !end
+        ) {
+
             return;
+
         }
 
 
         const now =
             Date.now();
 
+
         const elapsed =
             now - start;
+
 
         const duration =
             end - start;
@@ -617,21 +930,29 @@ function updateSpotify(data) {
 
             spotifyProgress.style.width =
                 `${percentage}%`;
+
         }
 
 
         if (spotifyCurrent) {
 
             spotifyCurrent.textContent =
-                formatTime(elapsed);
+                formatTime(
+                    elapsed
+                );
+
         }
 
 
         if (spotifyDuration) {
 
             spotifyDuration.textContent =
-                formatTime(duration);
+                formatTime(
+                    duration
+                );
+
         }
+
     }
 
 
@@ -643,6 +964,7 @@ function updateSpotify(data) {
         clearInterval(
             spotifyInterval
         );
+
     }
 
 
@@ -651,6 +973,7 @@ function updateSpotify(data) {
             renderProgress,
             1000
         );
+
 }
 
 
@@ -661,7 +984,8 @@ function updateSpotify(data) {
 function updateActivity(data) {
 
     const activities =
-        data?.activities || [];
+        data?.activities ||
+        [];
 
 
     const filtered =
@@ -674,26 +998,39 @@ function updateActivity(data) {
     if (!filtered.length) {
 
         if (activityName) {
+
             activityName.textContent =
                 "No activity";
+
         }
+
 
         if (activityDetail) {
+
             activityDetail.textContent =
                 "Nothing is being played";
+
         }
+
 
         if (activityImage) {
+
             activityImage.src =
                 DEFAULT_ACTIVITY_IMAGE;
+
         }
+
 
         if (infoActivity) {
+
             infoActivity.textContent =
                 "NONE";
+
         }
 
+
         return;
+
     }
 
 
@@ -706,19 +1043,25 @@ function updateActivity(data) {
         activityName.textContent =
             activity.name ||
             "Unknown activity";
+
     }
 
 
     if (activityDetail) {
 
         const details = [
+
             activity.details,
+
             activity.state
+
         ].filter(Boolean);
+
 
         activityDetail.textContent =
             details.join(" • ") ||
             "Active";
+
     }
 
 
@@ -727,36 +1070,54 @@ function updateActivity(data) {
         infoActivity.textContent =
             activity.name ||
             "ACTIVE";
+
     }
 
-
-    /* Activity image */
 
     let imageUrl =
         DEFAULT_ACTIVITY_IMAGE;
 
 
-    if (activity.assets?.large_image) {
+    if (
+        activity.assets?.large_image
+    ) {
 
         const image =
             activity.assets.large_image;
 
 
-        if (image.startsWith("mp:external/")) {
+        if (
+            image.startsWith(
+                "mp:external/"
+            )
+        ) {
 
             imageUrl =
-                `https://media.discordapp.net/${image.replace("mp:", "")}`;
+                `https://media.discordapp.net/${image.replace(
+                    "mp:",
+                    ""
+                )}`;
 
-        } else if (image.startsWith("http")) {
+        }
+
+        else if (
+            image.startsWith("http")
+        ) {
 
             imageUrl =
                 image;
 
-        } else if (activity.application_id) {
+        }
+
+        else if (
+            activity.application_id
+        ) {
 
             imageUrl =
                 `https://cdn.discordapp.com/app-assets/${activity.application_id}/${image}.png?size=256`;
+
         }
+
     }
 
 
@@ -764,7 +1125,9 @@ function updateActivity(data) {
 
         activityImage.src =
             imageUrl;
+
     }
+
 }
 
 
@@ -781,6 +1144,7 @@ function updateAll(data) {
     updateSpotify(data);
 
     updateActivity(data);
+
 }
 
 
@@ -807,20 +1171,29 @@ function setConnectionStatus(
         );
 
 
-        if (state === "connected") {
+        if (
+            state ===
+            "connected"
+        ) {
 
             connection.classList.add(
                 "connected"
             );
+
         }
 
 
-        if (state === "error") {
+        if (
+            state ===
+            "error"
+        ) {
 
             connection.classList.add(
                 "error"
             );
+
         }
+
     }
 
 
@@ -828,6 +1201,7 @@ function setConnectionStatus(
 
         connectionText.textContent =
             label;
+
     }
 
 
@@ -835,7 +1209,9 @@ function setConnectionStatus(
 
         lanyardStat.textContent =
             label;
+
     }
+
 }
 
 
@@ -857,7 +1233,8 @@ async function loadProfile() {
             await fetch(
                 REST_URL,
                 {
-                    cache: "no-store"
+                    cache:
+                        "no-store"
                 }
             );
 
@@ -867,6 +1244,7 @@ async function loadProfile() {
             throw new Error(
                 `HTTP ${response.status}`
             );
+
         }
 
 
@@ -879,10 +1257,13 @@ async function loadProfile() {
             throw new Error(
                 "Lanyard returned an error"
             );
+
         }
 
 
-        updateAll(result.data);
+        updateAll(
+            result.data
+        );
 
 
         setConnectionStatus(
@@ -903,7 +1284,9 @@ async function loadProfile() {
             "error",
             "CONNECTION ERROR"
         );
+
     }
+
 }
 
 
@@ -911,9 +1294,14 @@ async function loadProfile() {
    WEBSOCKET
 ========================= */
 
-let socket = null;
-let reconnectTimer = null;
-let heartbeatTimer = null;
+let socket =
+    null;
+
+let reconnectTimer =
+    null;
+
+let heartbeatTimer =
+    null;
 
 
 function connectLanyard() {
@@ -921,8 +1309,11 @@ function connectLanyard() {
     if (socket) {
 
         try {
+
             socket.close();
+
         } catch {}
+
     }
 
 
@@ -933,7 +1324,9 @@ function connectLanyard() {
 
 
     socket =
-        new WebSocket(WS_URL);
+        new WebSocket(
+            WS_URL
+        );
 
 
     socket.addEventListener(
@@ -943,6 +1336,7 @@ function connectLanyard() {
             console.log(
                 "[Lanyard] WebSocket connected"
             );
+
         }
     );
 
@@ -954,15 +1348,22 @@ function connectLanyard() {
             try {
 
                 const packet =
-                    JSON.parse(event.data);
+                    JSON.parse(
+                        event.data
+                    );
 
 
-                /* HELLO */
+                /* =========================
+                   HELLO
+                ========================== */
 
-                if (packet.op === 1) {
+                if (
+                    packet.op === 1
+                ) {
 
                     const interval =
-                        packet.d?.heartbeat_interval ||
+                        packet.d
+                            ?.heartbeat_interval ||
                         30000;
 
 
@@ -971,6 +1372,7 @@ function connectLanyard() {
                         clearInterval(
                             heartbeatTimer
                         );
+
                     }
 
 
@@ -990,6 +1392,7 @@ function connectLanyard() {
                                             d: null
                                         })
                                     );
+
                                 }
 
                             },
@@ -999,22 +1402,33 @@ function connectLanyard() {
 
                     socket.send(
                         JSON.stringify({
+
                             op: 2,
+
                             d: {
+
                                 subscribe_to_id:
                                     USER_ID
+
                             }
+
                         })
                     );
 
 
                     return;
+
                 }
 
 
-                /* INITIAL STATE */
+                /* =========================
+                   INITIAL STATE
+                ========================== */
 
-                if (packet.t === "INIT_STATE") {
+                if (
+                    packet.t ===
+                    "INIT_STATE"
+                ) {
 
                     if (
                         Array.isArray(
@@ -1032,22 +1446,29 @@ function connectLanyard() {
 
                         if (user) {
 
-                            updateAll(user);
+                            updateAll(
+                                user
+                            );
 
 
                             setConnectionStatus(
                                 "connected",
                                 "LIVE"
                             );
+
                         }
+
                     }
 
 
                     return;
+
                 }
 
 
-                /* PRESENCE UPDATE */
+                /* =========================
+                   PRESENCE UPDATE
+                ========================== */
 
                 if (
                     packet.t ===
@@ -1059,16 +1480,19 @@ function connectLanyard() {
                         USER_ID
                     ) {
 
-                        updateAll(packet.d);
+                        updateAll(
+                            packet.d
+                        );
 
 
                         setConnectionStatus(
                             "connected",
                             "LIVE"
                         );
-                    }
-                }
 
+                    }
+
+                }
 
             } catch (error) {
 
@@ -1076,7 +1500,9 @@ function connectLanyard() {
                     "[Lanyard WebSocket]",
                     error
                 );
+
             }
+
         }
     );
 
@@ -1095,6 +1521,7 @@ function connectLanyard() {
                 "error",
                 "CONNECTION ERROR"
             );
+
         }
     );
 
@@ -1115,7 +1542,9 @@ function connectLanyard() {
                     heartbeatTimer
                 );
 
-                heartbeatTimer = null;
+                heartbeatTimer =
+                    null;
+
             }
 
 
@@ -1124,6 +1553,7 @@ function connectLanyard() {
                 clearTimeout(
                     reconnectTimer
                 );
+
             }
 
 
@@ -1132,8 +1562,10 @@ function connectLanyard() {
                     connectLanyard,
                     3000
                 );
+
         }
     );
+
 }
 
 
@@ -1149,34 +1581,41 @@ function setupConnections() {
         );
 
 
-    cards.forEach(card => {
+    cards.forEach(
+        card => {
 
-        const name =
-            card.dataset.connection;
-
-
-        const url =
-            CONNECTIONS[name];
+            const name =
+                card.dataset.connection;
 
 
-        if (!url) {
+            const url =
+                CONNECTIONS[name];
 
-            card.style.display =
-                "none";
 
-            return;
+            if (!url) {
+
+                card.style.display =
+                    "none";
+
+                return;
+
+            }
+
+
+            card.href =
+                url;
+
+
+            card.target =
+                "_blank";
+
+
+            card.rel =
+                "noopener noreferrer";
+
         }
+    );
 
-
-        card.href =
-            url;
-
-        card.target =
-            "_blank";
-
-        card.rel =
-            "noopener noreferrer";
-    });
 }
 
 
@@ -1189,4 +1628,3 @@ setupConnections();
 loadProfile();
 
 connectLanyard();
-``

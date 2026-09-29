@@ -12,6 +12,7 @@
 
     <title>Discord Profile</title>
 
+
     <!-- =========================
          FAVICON
     ========================== -->
@@ -167,65 +168,113 @@
 
         <section class="quarter profile-quarter">
 
-            <div class="quarter-label">
-                PROFILE
-            </div>
+
+            <!-- DISCORD BANNER -->
+
+            <div
+                id="profile-banner"
+                class="profile-banner"
+            ></div>
+
+            <div class="profile-banner-fade"></div>
 
 
-            <div class="profile-main">
+            <!-- PROFILE CONTENT -->
 
-                <div class="avatar-area">
-
-
-                    <img
-                        id="avatar"
-                        class="avatar"
-                        src="https://cdn.discordapp.com/embed/avatars/0.png"
-                        alt="Discord Avatar"
-                    >
+            <div class="profile-content">
 
 
-                    <div
-                        id="status-bubble"
-                        class="status-bubble status-offline"
-                    ></div>
+                <div class="quarter-label">
+                    PROFILE
+                </div>
 
 
-                    <!-- =========================
-                         EGYPT CLOCK
-                    ========================== -->
-
-                    <div class="egypt-clock">
-
-                        <div class="egypt-clock-top">
-
-                            <span
-                                class="egypt-clock-dot"
-                            ></span>
+                <div class="profile-main">
 
 
-                            <span
-                                class="egypt-clock-label"
+                    <!-- AVATAR -->
+
+                    <div class="avatar-area">
+
+                        <img
+                            id="avatar"
+                            class="avatar"
+                            src="https://cdn.discordapp.com/embed/avatars/0.png"
+                            alt="Discord Avatar"
+                        >
+
+
+                        <div
+                            id="status-bubble"
+                            class="status-bubble status-offline"
+                        ></div>
+
+
+                        <!-- =========================
+                             CAIRO CLOCK
+                        ========================== -->
+
+                        <div class="egypt-clock">
+
+                            <div class="egypt-clock-top">
+
+                                <span
+                                    class="egypt-clock-dot"
+                                ></span>
+
+                                <span
+                                    class="egypt-clock-label"
+                                >
+                                    EGYPT / CAIRO
+                                </span>
+
+                                <span
+                                    id="egypt-time"
+                                    class="egypt-time"
+                                >
+                                    00:00
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                id="egypt-date"
+                                class="egypt-date"
                             >
-                                EGYPT / CAIRO
-                            </span>
+                                Loading date...
+                            </div>
+
+                        </div>
+
+                    </div>
 
 
-                            <span
-                                id="egypt-time"
-                                class="egypt-time"
-                            >
-                                00:00
-                            </span>
+                    <!-- PROFILE INFO -->
 
+                    <div class="profile-info">
+
+                        <div
+                            id="username"
+                            class="username"
+                        >
+                            Loading...
                         </div>
 
 
                         <div
-                            id="egypt-date"
-                            class="egypt-date"
+                            id="global-name"
+                            class="global-name"
                         >
-                            Loading date...
+                            Loading...
+                        </div>
+
+
+                        <div
+                            id="status-text"
+                            class="status-text"
+                        >
+                            OFFLINE
                         </div>
 
                     </div>
@@ -233,86 +282,57 @@
                 </div>
 
 
-                <div class="profile-info">
+                <!-- =========================
+                     ABOUT
+                ========================== -->
 
+                <div class="description">
 
-                    <div
-                        id="username"
-                        class="username"
-                    >
-                        Loading...
+                    <div class="description-title">
+                        ABOUT
                     </div>
 
 
-                    <div
-                        id="global-name"
-                        class="global-name"
-                    >
-                        Loading...
-                    </div>
+                    <p>
 
+                        Hi, I'm
 
-                    <div
-                        id="status-text"
-                        class="status-text"
-                    >
-                        OFFLINE
-                    </div>
+                        <span class="rainbow-nick">
+                            Nick
+                        </span>.
+
+                        I'm a developer, creator and owner of
+                        <strong>Caption Chaos</strong>.
+
+                        I enjoy building projects, Discord bots,
+                        websites and games.
+
+                    </p>
 
                 </div>
 
-            </div>
+
+                <!-- =========================
+                     PROFILE FOOTER
+                ========================== -->
+
+                <div class="profile-footer">
+
+                    <span id="device">
+                        DEVICE: UNKNOWN
+                    </span>
 
 
-            <!-- =========================
-                 ABOUT
-            ========================== -->
+                    <span class="separator">
+                        /
+                    </span>
 
-            <div class="description">
 
-                <div class="description-title">
-                    ABOUT
+                    <span id="discord-id">
+                        ID: —
+                    </span>
+
                 </div>
-
-
-                <p>
-
-                    Hi, I'm
-
-                    <span class="rainbow-nick">
-                        Nick
-                    </span>.
-
-                    I'm a developer, creator and owner of
-                    <strong>Caption Chaos</strong>.
-
-                    I enjoy building projects, Discord bots,
-                    websites and games.
-
-                </p>
-
-            </div>
-
-
-            <!-- =========================
-                 PROFILE FOOTER
-            ========================== -->
-
-            <div class="profile-footer">
-
-                <span id="device">
-                    DEVICE: UNKNOWN
-                </span>
-
-
-                <span class="separator">
-                    /
-                </span>
-
-
-                <span id="discord-id">
-                    ID: —
-                </span>
 
             </div>
 
@@ -343,7 +363,6 @@
 
                 <div class="spotify-details">
 
-
                     <div
                         id="spotify-song"
                         class="spotify-song"
@@ -371,7 +390,6 @@
 
 
                 <div class="spotify-progress-area">
-
 
                     <div class="progress-bar">
 
@@ -468,21 +486,17 @@
             <div class="stats-grid">
 
 
-                <!-- VIEWS -->
-
                 <div class="stat-card">
 
                     <div class="stat-icon">
                         ◉
                     </div>
 
-
                     <div class="stat-content">
 
                         <span>
                             VIEWS
                         </span>
-
 
                         <strong id="view-count">
                             0
@@ -493,21 +507,17 @@
                 </div>
 
 
-                <!-- DISCORD SINCE -->
-
                 <div class="stat-card">
 
                     <div class="stat-icon">
                         ◷
                     </div>
 
-
                     <div class="stat-content">
 
                         <span>
                             DISCORD SINCE
                         </span>
-
 
                         <strong id="info-created">
                             —
@@ -518,21 +528,17 @@
                 </div>
 
 
-                <!-- ACTIVITIES -->
-
                 <div class="stat-card">
 
                     <div class="stat-icon">
                         ◆
                     </div>
 
-
                     <div class="stat-content">
 
                         <span>
                             ACTIVITIES
                         </span>
-
 
                         <strong id="info-activity">
                             NONE
@@ -543,21 +549,17 @@
                 </div>
 
 
-                <!-- STATUS -->
-
                 <div class="stat-card">
 
                     <div class="stat-icon status-stat-icon">
                         ●
                     </div>
 
-
                     <div class="stat-content">
 
                         <span>
                             STATUS
                         </span>
-
 
                         <strong id="info-status">
                             OFFLINE
@@ -568,21 +570,17 @@
                 </div>
 
 
-                <!-- DEVICE -->
-
                 <div class="stat-card">
 
                     <div class="stat-icon">
                         ▣
                     </div>
 
-
                     <div class="stat-content">
 
                         <span>
                             DEVICE
                         </span>
-
 
                         <strong id="info-device">
                             UNKNOWN
@@ -593,21 +591,17 @@
                 </div>
 
 
-                <!-- PLATFORM -->
-
                 <div class="stat-card">
 
                     <div class="stat-icon">
                         ▤
                     </div>
 
-
                     <div class="stat-content">
 
                         <span>
                             PLATFORM
                         </span>
-
 
                         <strong id="info-platform">
                             None
@@ -618,21 +612,17 @@
                 </div>
 
 
-                <!-- SPOTIFY -->
-
                 <div class="stat-card">
 
                     <div class="stat-icon">
                         ♫
                     </div>
 
-
                     <div class="stat-content">
 
                         <span>
                             LISTENING
                         </span>
-
 
                         <strong id="info-spotify">
                             NOT LISTENING
@@ -643,21 +633,17 @@
                 </div>
 
 
-                <!-- LANYARD -->
-
                 <div class="stat-card">
 
                     <div class="stat-icon live-icon">
                         ●
                     </div>
 
-
                     <div class="stat-content">
 
                         <span>
                             LANYARD
                         </span>
-
 
                         <strong id="lanyard-stat">
                             CONNECTING
@@ -721,7 +707,6 @@
                             GitHub
                         </strong>
 
-
                         <span>
                             @afrige
                         </span>
@@ -744,13 +729,11 @@
                         alt="YouTube"
                     >
 
-
                     <div>
 
                         <strong>
                             YouTube
                         </strong>
-
 
                         <span>
                             Aevnloll
@@ -774,13 +757,11 @@
                         alt="Twitch"
                     >
 
-
                     <div>
 
                         <strong>
                             Twitch
                         </strong>
-
 
                         <span>
                             nick_thenewb
@@ -804,13 +785,11 @@
                         alt="Steam"
                     >
 
-
                     <div>
 
                         <strong>
                             Steam
                         </strong>
-
 
                         <span>
                             Profile
@@ -834,13 +813,11 @@
                         alt="Roblox"
                     >
 
-
                     <div>
 
                         <strong>
                             Roblox
                         </strong>
-
 
                         <span>
                             Profile
@@ -864,13 +841,11 @@
                         alt="Spotify"
                     >
 
-
                     <div>
 
                         <strong>
                             Spotify
                         </strong>
-
 
                         <span>
                             Profile
@@ -894,13 +869,11 @@
                         alt="Instagram"
                     >
 
-
                     <div>
 
                         <strong>
                             Instagram
                         </strong>
-
 
                         <span>
                             @nick_lamao
@@ -924,13 +897,11 @@
                         alt="X"
                     >
 
-
                     <div>
 
                         <strong>
                             X
                         </strong>
-
 
                         <span>
                             @itsghoulzlol
@@ -954,13 +925,11 @@
                         alt="TikTok"
                     >
 
-
                     <div>
 
                         <strong>
                             TikTok
                         </strong>
-
 
                         <span>
                             @sleepynicklol
@@ -984,13 +953,11 @@
                         alt="Website"
                     >
 
-
                     <div>
 
                         <strong>
                             Website
                         </strong>
-
 
                         <span>
                             Personal site
@@ -1018,7 +985,6 @@
             id="connection-dot"
             class="connection-dot"
         ></span>
-
 
         <span id="connection-text">
             CONNECTING
